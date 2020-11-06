@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">SpeakingTimer</string>
+    <string name="app_name">Timer App</string>
     <string name="enter_women_count_text">Enter Number of Women</string>
     <string name="enter_men_count_text">Enter Number of Men</string>
     <string name="save">Save</string>
+    <string name="women">Women</string>
+    <string name="men">Men</string>
 </resources>

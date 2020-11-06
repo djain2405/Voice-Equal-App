@@ -7,6 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.MainFragment">
 
+    <Chronometer
+        android:id="@+id/men_timer"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/timer_background"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/save_count" />
+
     <TextView
         android:id="@+id/enter_women_count"
         android:layout_width="wrap_content"
@@ -71,4 +84,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_men_count" />
+
+    <Chronometer
+        android:id="@+id/women_timer"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/timer_background"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/men_timer"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/women_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="@string/women"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/women_timer"
+        app:layout_constraintEnd_toEndOf="@+id/women_timer"
+        app:layout_constraintStart_toStartOf="@+id/women_timer" />
+
+    <TextView
+        android:id="@+id/men_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="@string/men"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/men_timer"
+        app:layout_constraintEnd_toEndOf="@+id/men_timer"
+        app:layout_constraintStart_toStartOf="@+id/men_timer" />
 </androidx.constraintlayout.widget.ConstraintLayout>
