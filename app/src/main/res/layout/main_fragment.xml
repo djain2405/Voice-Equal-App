@@ -118,4 +118,24 @@
         app:layout_constraintBottom_toTopOf="@+id/men_timer"
         app:layout_constraintEnd_toEndOf="@+id/men_timer"
         app:layout_constraintStart_toStartOf="@+id/men_timer" />
+
+    <Button
+        android:id="@+id/women_timer_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/start"
+        app:layout_constraintEnd_toEndOf="@+id/women_timer"
+        app:layout_constraintStart_toStartOf="@+id/women_timer"
+        app:layout_constraintTop_toBottomOf="@+id/women_timer" />
+
+    <Button
+        android:id="@+id/men_timer_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/start"
+        app:layout_constraintEnd_toEndOf="@+id/men_timer"
+        app:layout_constraintStart_toStartOf="@+id/men_timer"
+        app:layout_constraintTop_toBottomOf="@+id/men_timer" />
 </androidx.constraintlayout.widget.ConstraintLayout>
