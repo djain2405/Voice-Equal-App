@@ -6,4 +6,6 @@
     <string name="women">Women</string>
     <string name="men">Men</string>
     <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="show_results">Show Results</string>
 </resources>

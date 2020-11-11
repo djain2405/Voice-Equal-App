@@ -9,7 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 const val DEFAULT_SHARED_PREFERENCES = "default_count_shared_preferences"
 const val WOMEN_COUNT_KEY = "women_count_key"
 const val MEN_COUNT_KEY = "men_count_key"
-
+const val WOMEN_TIME_MILLISECONDS_KEY = "women_time_ms_key"
+const val MEN_TIME_MILLISECONDS_KEY = "men_time_ms_key"
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -28,6 +29,28 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             putInt(MEN_COUNT_KEY, menCount).apply()
 
         }
+    }
+
+    fun setTimeForWomen(time: Long) {
+        val savedTime = sharedPreferences.getLong(WOMEN_TIME_MILLISECONDS_KEY, 0)
+        with(sharedPreferences.edit()) {
+            putLong(WOMEN_TIME_MILLISECONDS_KEY, time + savedTime).apply()
+        }
+    }
+
+    fun setTimeForMen(time: Long) {
+        val savedTime = sharedPreferences.getLong(MEN_TIME_MILLISECONDS_KEY, 0)
+        with(sharedPreferences.edit()) {
+            putLong(MEN_TIME_MILLISECONDS_KEY, time + savedTime).apply()
+        }
+    }
+
+    fun readWomenTime(): Long {
+        return sharedPreferences.getLong(WOMEN_TIME_MILLISECONDS_KEY, 0)
+    }
+
+    fun readMenTime(): Long {
+        return sharedPreferences.getLong(MEN_TIME_MILLISECONDS_KEY, 0)
     }
 
     fun readWomenCount(): Int {
