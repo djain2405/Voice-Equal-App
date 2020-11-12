@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.speakingtimer.R
+import kotlinx.android.synthetic.main.results_fragment.*
 
 class ResultsFragment : Fragment() {
 
@@ -30,8 +31,10 @@ class ResultsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel.result.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(this.requireContext(), "Result: $it", Toast.LENGTH_LONG).show()
-
+            women_results_text.text =
+                "${it.womenCount} of the speakers were women and they spoke ${it.percentWomenTime}% of the time."
+            men_results_text.text =
+                "${it.menCount} of the speakers were men and they spoke ${it.percentMenTime}% of the time."
         })
     }
 }
