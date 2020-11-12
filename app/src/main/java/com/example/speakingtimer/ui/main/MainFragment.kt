@@ -1,5 +1,6 @@
 package com.example.speakingtimer.ui.main
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.os.SystemClock
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -40,6 +42,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         save_count.setOnClickListener {
+            dismissKeyboard()
             sharedPreferencesUtil.saveCount(
                 edit_women_count?.text.toString().toInt(),
                 edit_men_count?.text.toString().toInt()
@@ -60,8 +63,18 @@ class MainFragment : Fragment() {
         }
 
         reset_results.setOnClickListener {
+            edit_men_count.text.clear()
+            edit_women_count.text.clear()
             sharedPreferencesUtil.clearSharedPreferences()
         }
+    }
+
+    private fun dismissKeyboard() {
+        val inputMethodManager: InputMethodManager =
+            requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(edit_men_count.windowToken, 0)
+        inputMethodManager.hideSoftInputFromWindow(edit_women_count.windowToken, 0)
+
     }
 
     @ExperimentalTime
