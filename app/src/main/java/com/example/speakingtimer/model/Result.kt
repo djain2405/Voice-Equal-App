@@ -5,8 +5,6 @@ data class Result(
     val womenCount: Int,
     val womenTime: Long,
     val menTime: Long,
-    val percentMenCount: Int,
-    val percentWomenCount: Int,
     val percentMenTime: Int,
     val percentWomenTime: Int
 )

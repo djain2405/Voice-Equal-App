@@ -67,4 +67,8 @@ class SharedPreferencesUtil(private val application: Application) {
         setCountForWomen(womenCount)
         setCountForMen(menCount)
     }
+
+    fun clearSharedPreferences(){
+        sharedPreferences.edit().clear().apply()
+    }
 }

@@ -19,16 +19,21 @@ class ResultsViewModel(application: Application) : AndroidViewModel(application)
         val womenCount = sharedPreferences.readWomenCount()
         val menTime = sharedPreferences.readMenTime()
         val womenTime = sharedPreferences.readWomenTime()
+        val percentMenTime = if (menTime > 0 || womenTime > 0) {
+            ((menTime * 100) / (menTime + womenTime)).toInt()
+        } else 0
+
+        val percentWomenTime = if (menTime > 0 || womenTime > 0) {
+            ((womenTime * 100) / (menTime + womenTime)).toInt().coerceAtLeast(100 - percentMenTime)
+        } else 0
 
         _result.value = Result(
             menCount = menCount,
             womenCount = womenCount,
             menTime = menTime,
             womenTime = womenTime,
-            percentMenCount = (menCount * 100) / (menCount + womenCount),
-            percentWomenCount = (womenCount * 100) / (menCount + womenCount),
-            percentMenTime = ((menTime * 100) / (menTime + womenTime)).toInt(),
-            percentWomenTime = ((womenTime * 100) / (menTime + womenTime)).toInt()
+            percentMenTime = percentMenTime,
+            percentWomenTime = percentWomenTime
         )
     }
 

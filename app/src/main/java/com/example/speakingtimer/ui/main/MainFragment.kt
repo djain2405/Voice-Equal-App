@@ -58,6 +58,10 @@ class MainFragment : Fragment() {
         show_results_button.setOnClickListener {
             this.findNavController().navigate(R.id.action_mainFragment_to_resultsFragment)
         }
+
+        reset_results.setOnClickListener {
+            sharedPreferencesUtil.clearSharedPreferences()
+        }
     }
 
     @ExperimentalTime
