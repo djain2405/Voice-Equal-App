@@ -10,7 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.speakingtimer.R
+import com.example.speakingtimer.util.SharedPreferencesUtil
 import kotlinx.android.synthetic.main.main_fragment.*
 import java.lang.String.format
 import java.text.DateFormat
@@ -24,7 +26,9 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    private val sharedPreferencesUtil: SharedPreferencesUtil by lazy {
+        SharedPreferencesUtil(requireActivity().application)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,25 +37,10 @@ class MainFragment : Fragment() {
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
-    @ExperimentalTime
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel =
-            ViewModelProvider(this, MainViewModel.Factory(requireActivity().application)).get(
-                MainViewModel::class.java
-            )
-        val womenCount = viewModel.readWomenCount()
-        if (womenCount > 0) {
-            edit_women_count.setText(womenCount.toString())
-        }
-
-        val menCount = viewModel.readMenCount()
-        if (menCount > 0) {
-            edit_men_count.setText(menCount.toString())
-        }
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         save_count.setOnClickListener {
-            viewModel.saveCount(
+            sharedPreferencesUtil.saveCount(
                 edit_women_count?.text.toString().toInt(),
                 edit_men_count?.text.toString().toInt()
             )
@@ -67,13 +56,21 @@ class MainFragment : Fragment() {
         }
 
         show_results_button.setOnClickListener {
-            val menTime = viewModel.readMenTime()
-            val womenTime = viewModel.readWomenTime()
-            Toast.makeText(
-                this.requireContext(),
-                "Men: $menTime, Women: $womenTime",
-                Toast.LENGTH_LONG
-            ).show()
+            this.findNavController().navigate(R.id.action_mainFragment_to_resultsFragment)
+        }
+    }
+
+    @ExperimentalTime
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val womenCount = sharedPreferencesUtil.readWomenCount()
+        if (womenCount > 0) {
+            edit_women_count.setText(womenCount.toString())
+        }
+
+        val menCount = sharedPreferencesUtil.readMenCount()
+        if (menCount > 0) {
+            edit_men_count.setText(menCount.toString())
         }
 
     }
@@ -83,7 +80,7 @@ class MainFragment : Fragment() {
         if (isWomen) {
             if (men_timer_button.text == resources.getString(R.string.stop)) {
                 val elapsedTime = SystemClock.elapsedRealtime() - men_timer.base
-                viewModel.setTimeForMen(elapsedTime)
+                sharedPreferencesUtil.setTimeForMen(elapsedTime)
                 men_timer_button.text = resources.getString(R.string.start)
                 men_timer.stop()
 
@@ -94,7 +91,7 @@ class MainFragment : Fragment() {
                 women_timer.start()
             } else {
                 val elapsedTime = SystemClock.elapsedRealtime() - women_timer.base
-                viewModel.setTimeForWomen(elapsedTime)
+                sharedPreferencesUtil.setTimeForWomen(elapsedTime)
                 women_timer_button.text = resources.getString(R.string.start)
                 women_timer.stop()
             }
@@ -103,7 +100,7 @@ class MainFragment : Fragment() {
         else {
             if (women_timer_button.text == resources.getString(R.string.stop)) {
                 val elapsedTime = SystemClock.elapsedRealtime() - women_timer.base
-                viewModel.setTimeForWomen(elapsedTime)
+                sharedPreferencesUtil.setTimeForWomen(elapsedTime)
                 women_timer_button.text = resources.getString(R.string.start)
                 women_timer.stop()
 
@@ -114,7 +111,7 @@ class MainFragment : Fragment() {
                 men_timer.start()
             } else {
                 val elapsedTime = SystemClock.elapsedRealtime() - men_timer.base
-                viewModel.setTimeForMen(elapsedTime)
+                sharedPreferencesUtil.setTimeForMen(elapsedTime)
                 men_timer_button.text = resources.getString(R.string.start)
                 men_timer.stop()
             }
