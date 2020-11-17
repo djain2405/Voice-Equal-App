@@ -52,13 +52,13 @@ class MainFragment : Fragment() {
             }
         }
 
-        women_timer_button.setOnClickListener {
+        women_timer.setOnClickListener {
             calculateSpokenTime(true)
         }
 
-
-        men_timer_button.setOnClickListener {
+        men_timer.setOnClickListener {
             calculateSpokenTime(false)
+
         }
 
         show_results_button.setOnClickListener {
