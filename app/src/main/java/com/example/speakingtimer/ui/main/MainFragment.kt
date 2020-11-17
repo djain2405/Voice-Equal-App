@@ -43,10 +43,13 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         save_count.setOnClickListener {
             dismissKeyboard()
-            sharedPreferencesUtil.saveCount(
+            val isSaved = sharedPreferencesUtil.saveCount(
                 edit_women_count?.text.toString().toInt(),
                 edit_men_count?.text.toString().toInt()
             )
+            if (isSaved) {
+                Toast.makeText(requireContext(), "Count Saved", Toast.LENGTH_SHORT).show()
+            }
         }
 
         women_timer_button.setOnClickListener {

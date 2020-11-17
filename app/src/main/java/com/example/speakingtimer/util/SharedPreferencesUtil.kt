@@ -14,15 +14,15 @@ class SharedPreferencesUtil(private val application: Application) {
         application?.getSharedPreferences(DEFAULT_SHARED_PREFERENCES, Context.MODE_PRIVATE)
     }
 
-    private fun setCountForWomen(womenCount: Int) {
+    private fun setCountForWomen(womenCount: Int): Boolean {
         with(sharedPreferences.edit()) {
-            putInt(WOMEN_COUNT_KEY, womenCount).apply()
+            return putInt(WOMEN_COUNT_KEY, womenCount).commit()
         }
     }
 
-    private fun setCountForMen(menCount: Int) {
+    private fun setCountForMen(menCount: Int): Boolean {
         with(sharedPreferences.edit()) {
-            putInt(MEN_COUNT_KEY, menCount).apply()
+            return putInt(MEN_COUNT_KEY, menCount).commit()
 
         }
     }
@@ -63,12 +63,14 @@ class SharedPreferencesUtil(private val application: Application) {
         return sharedPreferences.getInt(MEN_COUNT_KEY, 0)
     }
 
-    fun saveCount(womenCount: Int, menCount: Int) {
-        setCountForWomen(womenCount)
-        setCountForMen(menCount)
+    fun saveCount(womenCount: Int, menCount: Int): Boolean {
+        val womenSaved = setCountForWomen(womenCount)
+        val menSaved = setCountForMen(menCount)
+
+        return womenSaved && menSaved
     }
 
-    fun clearSharedPreferences(){
+    fun clearSharedPreferences() {
         sharedPreferences.edit().clear().apply()
     }
 }
