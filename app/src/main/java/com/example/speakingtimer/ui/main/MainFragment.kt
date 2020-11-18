@@ -100,6 +100,7 @@ class MainFragment : Fragment() {
         if (isWomen) {
             if (men_timer_button.text == resources.getString(R.string.stop)) {
                 val elapsedTime = SystemClock.elapsedRealtime() - men_timer.base
+                sharedPreferencesUtil.setPauseTimeForMen(men_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForMen(elapsedTime)
                 men_timer_button.text = resources.getString(R.string.start)
                 men_timer.stop()
@@ -107,10 +108,12 @@ class MainFragment : Fragment() {
             }
             if (women_timer_button.text == resources.getString(R.string.start)) {
                 women_timer_button.text = resources.getString(R.string.stop)
-                women_timer.base = SystemClock.elapsedRealtime();
+                val stopTime = sharedPreferencesUtil.readWomenPauseTime()
+                women_timer.base = SystemClock.elapsedRealtime() + stopTime
                 women_timer.start()
             } else {
                 val elapsedTime = SystemClock.elapsedRealtime() - women_timer.base
+                sharedPreferencesUtil.setPauseTimeForWomen(women_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForWomen(elapsedTime)
                 women_timer_button.text = resources.getString(R.string.start)
                 women_timer.stop()
@@ -120,6 +123,7 @@ class MainFragment : Fragment() {
         else {
             if (women_timer_button.text == resources.getString(R.string.stop)) {
                 val elapsedTime = SystemClock.elapsedRealtime() - women_timer.base
+                sharedPreferencesUtil.setPauseTimeForWomen(women_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForWomen(elapsedTime)
                 women_timer_button.text = resources.getString(R.string.start)
                 women_timer.stop()
@@ -127,10 +131,12 @@ class MainFragment : Fragment() {
             }
             if (men_timer_button.text == resources.getString(R.string.start)) {
                 men_timer_button.text = resources.getString(R.string.stop)
-                men_timer.base = SystemClock.elapsedRealtime();
+                val stopTime = sharedPreferencesUtil.readMenPauseTime()
+                men_timer.base = SystemClock.elapsedRealtime() + stopTime
                 men_timer.start()
             } else {
                 val elapsedTime = SystemClock.elapsedRealtime() - men_timer.base
+                sharedPreferencesUtil.setPauseTimeForMen(men_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForMen(elapsedTime)
                 men_timer_button.text = resources.getString(R.string.start)
                 men_timer.stop()
