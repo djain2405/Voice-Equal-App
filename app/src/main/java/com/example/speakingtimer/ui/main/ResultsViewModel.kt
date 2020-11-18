@@ -17,8 +17,8 @@ class ResultsViewModel(application: Application) : AndroidViewModel(application)
     init {
         val menCount = sharedPreferences.readMenCount()
         val womenCount = sharedPreferences.readWomenCount()
-        val menTime = sharedPreferences.readMenTime()
-        val womenTime = sharedPreferences.readWomenTime()
+        val menTime = sharedPreferences.readMenTime()/1000
+        val womenTime = sharedPreferences.readWomenTime()/1000
         val percentMenTime = if (menTime > 0 || womenTime > 0) {
             ((menTime * 100) / (menTime + womenTime)).toInt()
         } else 0

@@ -110,7 +110,6 @@ class MainFragment : Fragment() {
                 sharedPreferencesUtil.setTimeForMen(elapsedTime)
                 men_timer_button.text = resources.getString(R.string.start)
                 men_timer.stop()
-
             }
             if (women_timer_button.text == resources.getString(R.string.start)) {
                 women_timer_button.text = resources.getString(R.string.stop)
