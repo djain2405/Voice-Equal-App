@@ -51,6 +51,10 @@ class MainFragment : Fragment() {
                 Toast.makeText(requireContext(), "Count Saved", Toast.LENGTH_SHORT).show()
             }
         }
+        val womenStopTime = sharedPreferencesUtil.readWomenPauseTime()
+        women_timer.base = SystemClock.elapsedRealtime() + womenStopTime
+        val menStopTime = sharedPreferencesUtil.readMenPauseTime()
+        men_timer.base = SystemClock.elapsedRealtime() + menStopTime
 
         women_timer.setOnClickListener {
             calculateSpokenTime(true)
