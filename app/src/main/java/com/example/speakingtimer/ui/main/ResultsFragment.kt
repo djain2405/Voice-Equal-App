@@ -32,9 +32,9 @@ class ResultsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel.result.observe(viewLifecycleOwner, Observer {
             women_results_text.text =
-                "${it.percentWomenCount} of the speakers were women and they spoke ${it.percentWomenTime}% of the time."
+                "${it.percentWomenCount}% of the speakers were women and they spoke ${it.percentWomenTime}% of the time."
             men_results_text.text =
-                "${it.percentMenCount} of the speakers were men and they spoke ${it.percentMenTime}% of the time."
+                "${it.percentMenCount}% of the speakers were men and they spoke ${it.percentMenTime}% of the time."
         })
     }
 }
