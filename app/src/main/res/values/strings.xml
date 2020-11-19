@@ -10,4 +10,6 @@
     <string name="show_results">Show Results</string>
     <string name="results">Results</string>
     <string name="reset_results">Reset Results</string>
+    <string name="women_men_count_title">Women/Men Count</string>
+    <string name="women_men_time_text">Women/Men Time</string>
 </resources>
