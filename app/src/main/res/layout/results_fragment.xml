@@ -45,4 +45,51 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/women_results_text" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/count_pie_chart"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/men_results_text" />
+
+    <TextView
+        android:id="@+id/pie_chart_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/women_men_count_title"
+        app:layout_constraintBottom_toTopOf="@+id/count_pie_chart"
+        app:layout_constraintEnd_toEndOf="@+id/count_pie_chart"
+        app:layout_constraintStart_toStartOf="@+id/count_pie_chart"
+        app:layout_constraintTop_toBottomOf="@+id/men_results_text"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/time_pie_chart"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/count_pie_chart"
+        app:layout_constraintTop_toBottomOf="@+id/men_results_text"
+        app:layout_constraintVertical_bias="0.501" />
+
+    <TextView
+        android:id="@+id/pie_chart_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/women_men_time_text"
+        app:layout_constraintBottom_toTopOf="@+id/time_pie_chart"
+        app:layout_constraintEnd_toEndOf="@+id/time_pie_chart"
+        app:layout_constraintStart_toStartOf="@+id/time_pie_chart"
+        app:layout_constraintTop_toBottomOf="@+id/men_results_text"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
