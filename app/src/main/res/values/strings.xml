@@ -12,4 +12,6 @@
     <string name="reset_results">Reset Results</string>
     <string name="women_men_count_title">Women/Men Count</string>
     <string name="women_men_time_text">Women/Men Time</string>
+    <string name="women_title">Women:</string>
+    <string name="men_text">Men:</string>
 </resources>

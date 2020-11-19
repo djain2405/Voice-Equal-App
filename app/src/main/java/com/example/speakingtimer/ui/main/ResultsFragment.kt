@@ -53,7 +53,7 @@ class ResultsFragment : Fragment() {
         pieEntryListCount.add(PieEntry(result.percentWomenCount.toFloat(), "Women"))
         pieEntryListCount.add(PieEntry(result.percentMenCount.toFloat(), "Men"))
         val colorList: MutableList<Int> = emptyList<Int>().toMutableList()
-        for (c in ColorTemplate.MATERIAL_COLORS) colorList.add(c)
+        for (c in ColorTemplate.PASTEL_COLORS) colorList.add(c)
         val pieDataSetCount = PieDataSet(pieEntryListCount, "")
         pieDataSetCount.setDrawIcons(false)
         pieDataSetCount.sliceSpace = 3f;
