@@ -79,6 +79,8 @@ class MainFragment : Fragment() {
     }
 
     private fun dismissKeyboard() {
+        edit_men_count.clearFocus()
+        edit_women_count.clearFocus()
         val inputMethodManager: InputMethodManager =
             requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(edit_men_count.windowToken, 0)
