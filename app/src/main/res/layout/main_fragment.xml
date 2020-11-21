@@ -9,10 +9,10 @@
 
     <Chronometer
         android:id="@+id/men_timer"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="36dp"
         android:background="@drawable/men_timer_background"
         android:gravity="center"
         android:textAlignment="center"
@@ -22,40 +22,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_men_count" />
 
-    <EditText
-        android:id="@+id/edit_women_count"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/enter_count_text"
-        android:importantForAutofill="no"
-        android:inputType="number"
-        android:textAlignment="viewStart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/women_text"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/edit_men_count"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="@string/enter_count_text"
-        android:importantForAutofill="no"
-        android:inputType="number"
-        android:textAlignment="viewStart"
-        app:layout_constraintEnd_toEndOf="@+id/edit_women_count"
-        app:layout_constraintStart_toStartOf="@+id/edit_women_count"
-        app:layout_constraintTop_toBottomOf="@+id/edit_women_count" />
-
     <Button
         android:id="@+id/save_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:background="#5B00BCD4"
         android:text="@string/save"
         android:textAlignment="center"
@@ -63,13 +34,13 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/edit_men_count"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/edit_women_count" />
+        app:layout_constraintTop_toTopOf="@+id/edit_men_count" />
 
     <Chronometer
         android:id="@+id/women_timer"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="36dp"
         android:background="@drawable/women_timer_background"
         android:gravity="center"
         android:textAlignment="center"
@@ -153,25 +124,48 @@
         app:layout_constraintStart_toEndOf="@+id/show_results_button" />
 
     <TextView
-        android:id="@+id/women_text"
+        android:id="@+id/women_title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:text="@string/women_title"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/edit_women_count"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/edit_women_count" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_women_count"
+        app:layout_constraintStart_toStartOf="@+id/edit_women_count"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_women_count"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:hint="@string/enter_count_text"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit_men_count"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/men_title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="12dp"
         android:text="@string/men_text"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/edit_men_count"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/edit_men_count" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_men_count"
+        app:layout_constraintStart_toStartOf="@+id/edit_men_count"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_men_count"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/enter_count_text"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/save_count"
+        app:layout_constraintStart_toEndOf="@+id/edit_women_count"
+        app:layout_constraintTop_toBottomOf="@+id/men_title_text" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
