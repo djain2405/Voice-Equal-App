@@ -129,6 +129,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="@string/women_title"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/edit_women_count"
         app:layout_constraintStart_toStartOf="@+id/edit_women_count"
         app:layout_constraintTop_toTopOf="parent" />
@@ -151,6 +152,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="@string/men_text"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/edit_men_count"
         app:layout_constraintStart_toStartOf="@+id/edit_men_count"
         app:layout_constraintTop_toTopOf="parent" />

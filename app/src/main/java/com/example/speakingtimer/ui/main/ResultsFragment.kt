@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.speakingtimer.R
 import com.example.speakingtimer.model.Result
+import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
@@ -53,7 +54,7 @@ class ResultsFragment : Fragment() {
         pieEntryListCount.add(PieEntry(result.percentWomenCount.toFloat(), "Women"))
         pieEntryListCount.add(PieEntry(result.percentMenCount.toFloat(), "Men"))
         val colorList: MutableList<Int> = emptyList<Int>().toMutableList()
-        for (c in ColorTemplate.PASTEL_COLORS) colorList.add(c)
+        for (c in ColorTemplate.JOYFUL_COLORS) colorList.add(c)
         val pieDataSetCount = PieDataSet(pieEntryListCount, "")
         pieDataSetCount.setDrawIcons(false)
         pieDataSetCount.sliceSpace = 3f;
@@ -65,6 +66,8 @@ class ResultsFragment : Fragment() {
         count_pie_chart.setDrawEntryLabels(false)
         count_pie_chart.setUsePercentValues(true)
         count_pie_chart.description.isEnabled = false
+        val countLegend = count_pie_chart.legend
+        countLegend.direction = Legend.LegendDirection.RIGHT_TO_LEFT
 
         // For time pie chart
         val pieEntryListTime: MutableList<PieEntry> = emptyList<PieEntry>().toMutableList()
@@ -81,6 +84,8 @@ class ResultsFragment : Fragment() {
         time_pie_chart.setDrawEntryLabels(false)
         time_pie_chart.setUsePercentValues(true)
         time_pie_chart.description.isEnabled = false
+        val timeLegend = time_pie_chart.legend
+        timeLegend.direction = Legend.LegendDirection.RIGHT_TO_LEFT
 
 
     }

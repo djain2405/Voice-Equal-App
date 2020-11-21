@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.speakingtimer.R
@@ -111,18 +112,24 @@ class MainFragment : Fragment() {
                 sharedPreferencesUtil.setPauseTimeForMen(men_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForMen(elapsedTime)
                 men_timer_button.text = resources.getString(R.string.start)
+                men_timer.background = ResourcesCompat.getDrawable(resources,R.drawable.men_timer_background, null)
+                men_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
                 men_timer.stop()
             }
             if (women_timer_button.text == resources.getString(R.string.start)) {
                 women_timer_button.text = resources.getString(R.string.stop)
                 val stopTime = sharedPreferencesUtil.readWomenPauseTime()
                 women_timer.base = SystemClock.elapsedRealtime() + stopTime
+                women_timer.background = ResourcesCompat.getDrawable(resources,R.drawable.women_lighter_timer_background, null)
+                women_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.black, null))
                 women_timer.start()
             } else {
                 val elapsedTime = SystemClock.elapsedRealtime() - women_timer.base
                 sharedPreferencesUtil.setPauseTimeForWomen(women_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForWomen(elapsedTime)
                 women_timer_button.text = resources.getString(R.string.start)
+                women_timer.background = ResourcesCompat.getDrawable(resources,R.drawable.women_timer_background, null)
+                women_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
                 women_timer.stop()
             }
         }
@@ -133,6 +140,8 @@ class MainFragment : Fragment() {
                 sharedPreferencesUtil.setPauseTimeForWomen(women_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForWomen(elapsedTime)
                 women_timer_button.text = resources.getString(R.string.start)
+                women_timer.background = ResourcesCompat.getDrawable(resources,R.drawable.women_timer_background, null)
+                women_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
                 women_timer.stop()
 
             }
@@ -140,12 +149,16 @@ class MainFragment : Fragment() {
                 men_timer_button.text = resources.getString(R.string.stop)
                 val stopTime = sharedPreferencesUtil.readMenPauseTime()
                 men_timer.base = SystemClock.elapsedRealtime() + stopTime
+                men_timer.background = ResourcesCompat.getDrawable(resources,R.drawable.men_lighter_timer_background, null)
+                men_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.black, null))
                 men_timer.start()
             } else {
                 val elapsedTime = SystemClock.elapsedRealtime() - men_timer.base
                 sharedPreferencesUtil.setPauseTimeForMen(men_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForMen(elapsedTime)
                 men_timer_button.text = resources.getString(R.string.start)
+                men_timer.background = ResourcesCompat.getDrawable(resources,R.drawable.men_timer_background, null)
+                men_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
                 men_timer.stop()
             }
         }
