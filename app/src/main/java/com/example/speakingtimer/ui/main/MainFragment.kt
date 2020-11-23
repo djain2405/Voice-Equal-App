@@ -44,12 +44,18 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         save_count.setOnClickListener {
             dismissKeyboard()
+            val womenCount =
+                if (edit_women_count?.text.toString()?.length > 0) edit_women_count?.text.toString()
+                    .toInt() else 0
+            val menCount =
+                if (edit_men_count?.text.toString()?.length > 0) edit_men_count?.text.toString()
+                    .toInt() else 0
             val isSaved = sharedPreferencesUtil.saveCount(
-                edit_women_count?.text.toString().toInt(),
-                edit_men_count?.text.toString().toInt()
+                womenCount,
+                menCount
             )
             if (isSaved) {
-                Toast.makeText(requireContext(), "Count Saved", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Count Saved, women: $womenCount, men: $menCount", Toast.LENGTH_SHORT).show()
             }
         }
         val womenStopTime = sharedPreferencesUtil.readWomenPauseTime()
@@ -112,7 +118,8 @@ class MainFragment : Fragment() {
                 sharedPreferencesUtil.setPauseTimeForMen(men_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForMen(elapsedTime)
                 men_timer_button.text = resources.getString(R.string.start)
-                men_timer.background = ResourcesCompat.getDrawable(resources,R.drawable.men_timer_background, null)
+                men_timer.background =
+                    ResourcesCompat.getDrawable(resources, R.drawable.men_timer_background, null)
                 men_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
                 men_timer.stop()
             }
@@ -120,7 +127,11 @@ class MainFragment : Fragment() {
                 women_timer_button.text = resources.getString(R.string.stop)
                 val stopTime = sharedPreferencesUtil.readWomenPauseTime()
                 women_timer.base = SystemClock.elapsedRealtime() + stopTime
-                women_timer.background = ResourcesCompat.getDrawable(resources,R.drawable.women_lighter_timer_background, null)
+                women_timer.background = ResourcesCompat.getDrawable(
+                    resources,
+                    R.drawable.women_lighter_timer_background,
+                    null
+                )
                 women_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.black, null))
                 women_timer.start()
             } else {
@@ -128,7 +139,8 @@ class MainFragment : Fragment() {
                 sharedPreferencesUtil.setPauseTimeForWomen(women_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForWomen(elapsedTime)
                 women_timer_button.text = resources.getString(R.string.start)
-                women_timer.background = ResourcesCompat.getDrawable(resources,R.drawable.women_timer_background, null)
+                women_timer.background =
+                    ResourcesCompat.getDrawable(resources, R.drawable.women_timer_background, null)
                 women_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
                 women_timer.stop()
             }
@@ -140,7 +152,8 @@ class MainFragment : Fragment() {
                 sharedPreferencesUtil.setPauseTimeForWomen(women_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForWomen(elapsedTime)
                 women_timer_button.text = resources.getString(R.string.start)
-                women_timer.background = ResourcesCompat.getDrawable(resources,R.drawable.women_timer_background, null)
+                women_timer.background =
+                    ResourcesCompat.getDrawable(resources, R.drawable.women_timer_background, null)
                 women_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
                 women_timer.stop()
 
@@ -149,7 +162,11 @@ class MainFragment : Fragment() {
                 men_timer_button.text = resources.getString(R.string.stop)
                 val stopTime = sharedPreferencesUtil.readMenPauseTime()
                 men_timer.base = SystemClock.elapsedRealtime() + stopTime
-                men_timer.background = ResourcesCompat.getDrawable(resources,R.drawable.men_lighter_timer_background, null)
+                men_timer.background = ResourcesCompat.getDrawable(
+                    resources,
+                    R.drawable.men_lighter_timer_background,
+                    null
+                )
                 men_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.black, null))
                 men_timer.start()
             } else {
@@ -157,7 +174,8 @@ class MainFragment : Fragment() {
                 sharedPreferencesUtil.setPauseTimeForMen(men_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForMen(elapsedTime)
                 men_timer_button.text = resources.getString(R.string.start)
-                men_timer.background = ResourcesCompat.getDrawable(resources,R.drawable.men_timer_background, null)
+                men_timer.background =
+                    ResourcesCompat.getDrawable(resources, R.drawable.men_timer_background, null)
                 men_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
                 men_timer.stop()
             }
