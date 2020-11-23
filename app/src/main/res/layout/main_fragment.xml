@@ -11,7 +11,6 @@
         android:id="@+id/men_timer"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="56dp"
         android:layout_marginEnd="36dp"
         android:background="@drawable/men_timer_background"
         android:gravity="center"
@@ -19,6 +18,7 @@
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/reset_results"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_men_count" />
 
@@ -98,7 +98,7 @@
         android:id="@+id/show_results_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
         android:background="@android:color/holo_green_light"
         android:padding="4dp"
         android:text="@string/show_results"
@@ -139,10 +139,10 @@
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:ems="10"
         android:hint="@string/enter_count_text"
         android:importantForAutofill="no"
         android:inputType="number"
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/edit_men_count"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -162,10 +162,10 @@
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:ems="10"
         android:hint="@string/enter_count_text"
         android:importantForAutofill="no"
         android:inputType="number"
+        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/save_count"
         app:layout_constraintStart_toEndOf="@+id/edit_women_count"
         app:layout_constraintTop_toBottomOf="@+id/men_title_text" />
