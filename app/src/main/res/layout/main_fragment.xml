@@ -20,7 +20,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/reset_results"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_men_count" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_men_count"
+        app:layout_constraintVertical_bias="0.8" />
 
     <Button
         android:id="@+id/save_count"
@@ -103,7 +104,7 @@
         android:padding="4dp"
         android:text="@string/show_results"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/reset_results"
         app:layout_constraintEnd_toStartOf="@+id/reset_results"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,11 +115,12 @@
         android:id="@+id/reset_results"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
         android:background="@android:color/holo_green_light"
         android:padding="4dp"
         android:text="@string/reset_results"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/show_results_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/show_results_button" />
