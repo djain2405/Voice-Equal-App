@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/gray">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/counter_background"
@@ -13,6 +14,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/counter_background"
+        android:elevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -38,6 +40,8 @@
             android:hint="@string/empty_text"
             android:importantForAutofill="no"
             android:inputType="number"
+            android:textAlignment="center"
+            android:textCursorDrawable="@color/black"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/women_title_text"
@@ -75,6 +79,8 @@
             android:hint="@string/empty_text"
             android:importantForAutofill="no"
             android:inputType="number"
+            android:textAlignment="center"
+            android:textCursorDrawable="@color/black"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
