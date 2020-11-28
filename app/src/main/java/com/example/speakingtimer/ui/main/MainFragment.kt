@@ -37,7 +37,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        return inflater.inflate(R.layout.timer_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,31 +58,31 @@ class MainFragment : Fragment() {
                 Toast.makeText(requireContext(), "Count Saved, women: $womenCount, men: $menCount", Toast.LENGTH_SHORT).show()
             }
         }
-        val womenStopTime = sharedPreferencesUtil.readWomenPauseTime()
-        women_timer.base = SystemClock.elapsedRealtime() + womenStopTime
-        val menStopTime = sharedPreferencesUtil.readMenPauseTime()
-        men_timer.base = SystemClock.elapsedRealtime() + menStopTime
-
-        women_timer.setOnClickListener {
-            calculateSpokenTime(true)
-        }
-
-        men_timer.setOnClickListener {
-            calculateSpokenTime(false)
-
-        }
-
-        show_results_button.setOnClickListener {
-            this.findNavController().navigate(R.id.action_mainFragment_to_resultsFragment)
-        }
-
-        reset_results.setOnClickListener {
-            edit_men_count.text.clear()
-            edit_women_count.text.clear()
-            women_timer.base = SystemClock.elapsedRealtime()
-            men_timer.base = SystemClock.elapsedRealtime()
-            sharedPreferencesUtil.clearSharedPreferences()
-        }
+//        val womenStopTime = sharedPreferencesUtil.readWomenPauseTime()
+//        women_timer.base = SystemClock.elapsedRealtime() + womenStopTime
+//        val menStopTime = sharedPreferencesUtil.readMenPauseTime()
+//        men_timer.base = SystemClock.elapsedRealtime() + menStopTime
+//
+//        women_timer.setOnClickListener {
+//            calculateSpokenTime(true)
+//        }
+//
+//        men_timer.setOnClickListener {
+//            calculateSpokenTime(false)
+//
+//        }
+//
+//        show_results_button.setOnClickListener {
+//            this.findNavController().navigate(R.id.action_mainFragment_to_resultsFragment)
+//        }
+//
+//        reset_results.setOnClickListener {
+//            edit_men_count.text.clear()
+//            edit_women_count.text.clear()
+//            women_timer.base = SystemClock.elapsedRealtime()
+//            men_timer.base = SystemClock.elapsedRealtime()
+//            sharedPreferencesUtil.clearSharedPreferences()
+//        }
     }
 
     private fun dismissKeyboard() {
@@ -98,15 +98,15 @@ class MainFragment : Fragment() {
     @ExperimentalTime
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val womenCount = sharedPreferencesUtil.readWomenCount()
-        if (womenCount > 0) {
-            edit_women_count.setText(womenCount.toString())
-        }
-
-        val menCount = sharedPreferencesUtil.readMenCount()
-        if (menCount > 0) {
-            edit_men_count.setText(menCount.toString())
-        }
+//        val womenCount = sharedPreferencesUtil.readWomenCount()
+//        if (womenCount > 0) {
+//            edit_women_count.setText(womenCount.toString())
+//        }
+//
+//        val menCount = sharedPreferencesUtil.readMenCount()
+//        if (menCount > 0) {
+//            edit_men_count.setText(menCount.toString())
+//        }
 
     }
 
