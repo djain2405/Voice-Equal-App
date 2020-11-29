@@ -16,4 +16,5 @@
     <string name="counter_title_edit">How many people are there?</string>
     <string name="counter_title">NUMBER OF PEOPLE</string>
     <string name="empty_text"></string>
+    <string name="edit_counter">Edit Counter Button</string>
 </resources>
