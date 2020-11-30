@@ -90,13 +90,13 @@ class MainFragment : Fragment() {
 //            this.findNavController().navigate(R.id.action_mainFragment_to_resultsFragment)
 //        }
 //
-//        reset_results.setOnClickListener {
-//            edit_men_count.text.clear()
-//            edit_women_count.text.clear()
+        reset_results.setOnClickListener {
+            edit_men_count.text.clear()
+            edit_women_count.text.clear()
 //            women_timer.base = SystemClock.elapsedRealtime()
 //            men_timer.base = SystemClock.elapsedRealtime()
-//            sharedPreferencesUtil.clearSharedPreferences()
-//        }
+            sharedPreferencesUtil.clearSharedPreferences()
+        }
     }
 
     private fun setEditCounterMode() {

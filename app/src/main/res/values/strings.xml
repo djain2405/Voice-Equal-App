@@ -2,11 +2,11 @@
     <string name="app_name">Timer App</string>
     <string name="enter_count_text">Enter No.</string>
     <string name="save">Save</string>
-    <string name="women">Women</string>
-    <string name="men">Men</string>
+    <string name="women">WOMEN</string>
+    <string name="men">MEN</string>
     <string name="start">Start</string>
     <string name="stop">Stop</string>
-    <string name="show_results">Show Results</string>
+    <string name="show_results">See Result</string>
     <string name="results">Results</string>
     <string name="reset_results">Reset Results</string>
     <string name="women_men_count_title">Women/Men Count</string>
@@ -18,4 +18,9 @@
     <string name="empty_text"></string>
     <string name="zero">0</string>
     <string name="edit_counter">Edit Counter Button</string>
+    <string name="total_duration">Total duration</string>
+    <string name="initial_counter">00:00</string>
+    <string name="reset_button_desc">Reset Button</string>
+    <string name="reset">Reset</string>
+    <string name="start_timer">Start Timer</string>
 </resources>
