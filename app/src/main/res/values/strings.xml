@@ -18,4 +18,6 @@
     <string name="empty_text"></string>
     <string name="zero">0</string>
     <string name="edit_counter">Edit Counter Button</string>
+    <string name="total_duration">Total duration</string>
+    <string name="initial_counter">00:00</string>
 </resources>

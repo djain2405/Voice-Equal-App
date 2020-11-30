@@ -146,4 +146,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/total_duration_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="@string/total_duration"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/total_duration"
+        app:layout_constraintEnd_toEndOf="@+id/total_duration"
+        app:layout_constraintStart_toStartOf="@+id/total_duration" />
+
+    <TextView
+        android:id="@+id/total_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="@string/initial_counter"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/show_results_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
