@@ -59,15 +59,17 @@ class MainFragment : Fragment() {
                 menCount
             )
             if (isSaved) {
-                Toast.makeText(requireContext(), "Count Saved, women: $womenCount, men: $menCount", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Count Saved, women: $womenCount, men: $menCount",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
-            save_count.visibility = View.GONE
-            edit_counter_button.visibility = View.VISIBLE
+            setCounterMode()
         }
 
         edit_counter_button.setOnClickListener {
-            save_count.visibility = View.VISIBLE
-            edit_counter_button.visibility = View.GONE
+            setEditCounterMode()
         }
 
 //        val womenStopTime = sharedPreferencesUtil.readWomenPauseTime()
@@ -97,6 +99,32 @@ class MainFragment : Fragment() {
 //        }
     }
 
+    private fun setEditCounterMode() {
+        save_count.visibility = View.VISIBLE
+        edit_counter_button.visibility = View.GONE
+        counter_title.text = resources.getString(R.string.counter_title_edit)
+
+        edit_women_count.isEnabled = true
+        edit_men_count.isEnabled = true
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            edit_women_count.setBackgroundColor(resources.getColor(R.color.white, null))
+            edit_men_count.setBackgroundColor(resources.getColor(R.color.white, null))
+        }
+    }
+
+    private fun setCounterMode() {
+        save_count.visibility = View.GONE
+        edit_counter_button.visibility = View.VISIBLE
+        counter_title.text = resources.getString(R.string.counter_title)
+
+        edit_women_count.isEnabled = false
+        edit_men_count.isEnabled = false
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            edit_women_count.setBackgroundColor(resources.getColor(R.color.gray, null))
+            edit_men_count.setBackgroundColor(resources.getColor(R.color.gray, null))
+        }
+    }
+
     private fun dismissKeyboard() {
         edit_men_count.clearFocus()
         edit_women_count.clearFocus()
@@ -110,16 +138,15 @@ class MainFragment : Fragment() {
     @ExperimentalTime
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        val womenCount = sharedPreferencesUtil.readWomenCount()
-//        if (womenCount > 0) {
-//            edit_women_count.setText(womenCount.toString())
-//        }
-//
-//        val menCount = sharedPreferencesUtil.readMenCount()
-//        if (menCount > 0) {
-//            edit_men_count.setText(menCount.toString())
-//        }
-
+        val womenCount = sharedPreferencesUtil.readWomenCount()
+        val menCount = sharedPreferencesUtil.readMenCount()
+        if (womenCount > 0 || menCount > 0) {
+            setCounterMode()
+            edit_women_count.setText(womenCount.toString())
+            edit_men_count.setText(menCount.toString())
+        } else {
+            setEditCounterMode()
+        }
     }
 
     private fun calculateSpokenTime(isWomen: Boolean) {
