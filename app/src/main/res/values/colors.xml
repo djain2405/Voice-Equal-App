@@ -10,5 +10,6 @@
     <color name="white">#fff</color>
     <color name="black">#000</color>
     <color name="gray">#ECF0F3</color>
+    <color name="lightGray">#E6EBEE</color>
     <color name="save_button">#47494B</color>
 </resources>
