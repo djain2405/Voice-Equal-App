@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     android:background="@color/gray">
 
+    <ImageButton
+        android:id="@+id/reset_button"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/edit_button_background"
+        android:contentDescription="@string/reset_button_desc"
+        android:elevation="4dp"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/total_duration_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/resetbutton" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/counter_background"
         android:layout_width="match_parent"
@@ -168,5 +182,17 @@
         app:layout_constraintBottom_toTopOf="@+id/show_results_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/reset_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="@string/reset"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/reset_button"
+        app:layout_constraintEnd_toEndOf="@+id/reset_button"
+        app:layout_constraintStart_toStartOf="@+id/reset_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
