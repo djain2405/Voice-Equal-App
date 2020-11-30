@@ -78,13 +78,14 @@ class MainFragment : Fragment() {
         men_timer.base = SystemClock.elapsedRealtime() + menStopTime
 
         women_start_timer_button.setOnClickListener {
-            women_start_timer_button.visibility = View.GONE
-            women_pause_button.visibility = View.VISIBLE
+            renderStartTimerUI()
+            men_pause_button.setImageResource(R.mipmap.menplay)
+
         }
 
         men_start_timer_button.setOnClickListener {
-            men_start_timer_button.visibility = View.GONE
-            men_pause_button.visibility = View.VISIBLE
+            renderStartTimerUI()
+            women_pause_button.setImageResource(R.mipmap.womenplay)
         }
 //
 //        show_results_button.setOnClickListener {
@@ -98,6 +99,13 @@ class MainFragment : Fragment() {
 //            men_timer.base = SystemClock.elapsedRealtime()
             sharedPreferencesUtil.clearSharedPreferences()
         }
+    }
+
+    private fun renderStartTimerUI() {
+        women_start_timer_button.visibility = View.GONE
+        women_pause_button.visibility = View.VISIBLE
+        men_start_timer_button.visibility = View.GONE
+        men_pause_button.visibility = View.VISIBLE
     }
 
     private fun setEditCounterMode() {
