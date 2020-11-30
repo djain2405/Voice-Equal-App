@@ -37,19 +37,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/edit_men_count" />
 
-    <Chronometer
-        android:id="@+id/women_timer"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="36dp"
-        android:background="@drawable/women_timer_background"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/men_timer"
-        app:layout_constraintStart_toStartOf="parent" />
+<!--    <Chronometer-->
+<!--        android:id="@+id/women_timer"-->
+<!--        android:layout_width="120dp"-->
+<!--        android:layout_height="120dp"-->
+<!--        android:layout_marginStart="36dp"-->
+<!--        android:background="@drawable/women_timer_background"-->
+<!--        android:gravity="center"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="@android:color/white"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/men_timer"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
     <TextView
         android:id="@+id/women_title"
