@@ -11,6 +11,11 @@
     <string name="reset_results">Reset Results</string>
     <string name="women_men_count_title">Women/Men Count</string>
     <string name="women_men_time_text">Women/Men Time</string>
-    <string name="women_title">Women:</string>
-    <string name="men_text">Men:</string>
+    <string name="women_title">WOMEN:</string>
+    <string name="men_text">MEN:</string>
+    <string name="counter_title_edit">How many people are there?</string>
+    <string name="counter_title">NUMBER OF PEOPLE</string>
+    <string name="empty_text"></string>
+    <string name="zero">0</string>
+    <string name="edit_counter">Edit Counter Button</string>
 </resources>

@@ -17,6 +17,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.speakingtimer.R
 import com.example.speakingtimer.util.SharedPreferencesUtil
 import kotlinx.android.synthetic.main.main_fragment.*
+import kotlinx.android.synthetic.main.main_fragment.edit_men_count
+import kotlinx.android.synthetic.main.main_fragment.edit_women_count
+import kotlinx.android.synthetic.main.main_fragment.save_count
+import kotlinx.android.synthetic.main.timer_fragment.*
 import java.lang.String.format
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -37,7 +41,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        return inflater.inflate(R.layout.timer_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,33 +59,69 @@ class MainFragment : Fragment() {
                 menCount
             )
             if (isSaved) {
-                Toast.makeText(requireContext(), "Count Saved, women: $womenCount, men: $menCount", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Count Saved, women: $womenCount, men: $menCount",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
-        }
-        val womenStopTime = sharedPreferencesUtil.readWomenPauseTime()
-        women_timer.base = SystemClock.elapsedRealtime() + womenStopTime
-        val menStopTime = sharedPreferencesUtil.readMenPauseTime()
-        men_timer.base = SystemClock.elapsedRealtime() + menStopTime
-
-        women_timer.setOnClickListener {
-            calculateSpokenTime(true)
+            setCounterMode()
         }
 
-        men_timer.setOnClickListener {
-            calculateSpokenTime(false)
-
+        edit_counter_button.setOnClickListener {
+            setEditCounterMode()
         }
 
-        show_results_button.setOnClickListener {
-            this.findNavController().navigate(R.id.action_mainFragment_to_resultsFragment)
-        }
+//        val womenStopTime = sharedPreferencesUtil.readWomenPauseTime()
+//        women_timer.base = SystemClock.elapsedRealtime() + womenStopTime
+//        val menStopTime = sharedPreferencesUtil.readMenPauseTime()
+//        men_timer.base = SystemClock.elapsedRealtime() + menStopTime
+//
+//        women_timer.setOnClickListener {
+//            calculateSpokenTime(true)
+//        }
+//
+//        men_timer.setOnClickListener {
+//            calculateSpokenTime(false)
+//
+//        }
+//
+//        show_results_button.setOnClickListener {
+//            this.findNavController().navigate(R.id.action_mainFragment_to_resultsFragment)
+//        }
+//
+//        reset_results.setOnClickListener {
+//            edit_men_count.text.clear()
+//            edit_women_count.text.clear()
+//            women_timer.base = SystemClock.elapsedRealtime()
+//            men_timer.base = SystemClock.elapsedRealtime()
+//            sharedPreferencesUtil.clearSharedPreferences()
+//        }
+    }
 
-        reset_results.setOnClickListener {
-            edit_men_count.text.clear()
-            edit_women_count.text.clear()
-            women_timer.base = SystemClock.elapsedRealtime()
-            men_timer.base = SystemClock.elapsedRealtime()
-            sharedPreferencesUtil.clearSharedPreferences()
+    private fun setEditCounterMode() {
+        save_count.visibility = View.VISIBLE
+        edit_counter_button.visibility = View.GONE
+        counter_title.text = resources.getString(R.string.counter_title_edit)
+
+        edit_women_count.isEnabled = true
+        edit_men_count.isEnabled = true
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            edit_women_count.setBackgroundColor(resources.getColor(R.color.white, null))
+            edit_men_count.setBackgroundColor(resources.getColor(R.color.white, null))
+        }
+    }
+
+    private fun setCounterMode() {
+        save_count.visibility = View.GONE
+        edit_counter_button.visibility = View.VISIBLE
+        counter_title.text = resources.getString(R.string.counter_title)
+
+        edit_women_count.isEnabled = false
+        edit_men_count.isEnabled = false
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            edit_women_count.setBackgroundColor(resources.getColor(R.color.gray, null))
+            edit_men_count.setBackgroundColor(resources.getColor(R.color.gray, null))
         }
     }
 
@@ -99,15 +139,14 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val womenCount = sharedPreferencesUtil.readWomenCount()
-        if (womenCount > 0) {
-            edit_women_count.setText(womenCount.toString())
-        }
-
         val menCount = sharedPreferencesUtil.readMenCount()
-        if (menCount > 0) {
+        if (womenCount > 0 || menCount > 0) {
+            setCounterMode()
+            edit_women_count.setText(womenCount.toString())
             edit_men_count.setText(menCount.toString())
+        } else {
+            setEditCounterMode()
         }
-
     }
 
     private fun calculateSpokenTime(isWomen: Boolean) {
