@@ -72,19 +72,20 @@ class MainFragment : Fragment() {
             setEditCounterMode()
         }
 
-//        val womenStopTime = sharedPreferencesUtil.readWomenPauseTime()
-//        women_timer.base = SystemClock.elapsedRealtime() + womenStopTime
-//        val menStopTime = sharedPreferencesUtil.readMenPauseTime()
-//        men_timer.base = SystemClock.elapsedRealtime() + menStopTime
-//
-//        women_timer.setOnClickListener {
-//            calculateSpokenTime(true)
-//        }
-//
-//        men_timer.setOnClickListener {
-//            calculateSpokenTime(false)
-//
-//        }
+        val womenStopTime = sharedPreferencesUtil.readWomenPauseTime()
+        women_timer.base = SystemClock.elapsedRealtime() + womenStopTime
+        val menStopTime = sharedPreferencesUtil.readMenPauseTime()
+        men_timer.base = SystemClock.elapsedRealtime() + menStopTime
+
+        women_start_timer_button.setOnClickListener {
+            women_start_timer_button.visibility = View.GONE
+            women_pause_button.visibility = View.VISIBLE
+        }
+
+        men_start_timer_button.setOnClickListener {
+            men_start_timer_button.visibility = View.GONE
+            men_pause_button.visibility = View.VISIBLE
+        }
 //
 //        show_results_button.setOnClickListener {
 //            this.findNavController().navigate(R.id.action_mainFragment_to_resultsFragment)

@@ -23,4 +23,6 @@
     <string name="reset_button_desc">Reset Button</string>
     <string name="reset">Reset</string>
     <string name="start_timer">Start Timer</string>
+    <string name="women_pause_button">Women Timer Pause Button</string>
+    <string name="men_pause_button">Men Timer Pause Button</string>
 </resources>

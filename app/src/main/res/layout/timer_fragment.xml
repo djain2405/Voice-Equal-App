@@ -247,6 +247,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/women_timer" />
 
+        <ImageButton
+            android:id="@+id/women_pause_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/lightGray"
+            android:contentDescription="@string/women_pause_button"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/women_timer"
+            app:srcCompat="@mipmap/womenpause" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -300,6 +313,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/men_timer" />
+
+        <ImageButton
+            android:id="@+id/men_pause_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/lightGray"
+            android:contentDescription="@string/men_pause_button"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/men_timer"
+            app:srcCompat="@mipmap/menpause" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
