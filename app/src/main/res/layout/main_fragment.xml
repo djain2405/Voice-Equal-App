@@ -7,21 +7,21 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.MainFragment">
 
-    <Chronometer
-        android:id="@+id/men_timer"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginEnd="36dp"
-        android:background="@drawable/men_timer_background"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/reset_results"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_men_count"
-        app:layout_constraintVertical_bias="0.8" />
+<!--    <Chronometer-->
+<!--        android:id="@+id/men_timer"-->
+<!--        android:layout_width="120dp"-->
+<!--        android:layout_height="120dp"-->
+<!--        android:layout_marginEnd="36dp"-->
+<!--        android:background="@drawable/men_timer_background"-->
+<!--        android:gravity="center"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="@android:color/white"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/reset_results"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/edit_men_count"-->
+<!--        app:layout_constraintVertical_bias="0.8" />-->
 
     <Button
         android:id="@+id/save_count"
