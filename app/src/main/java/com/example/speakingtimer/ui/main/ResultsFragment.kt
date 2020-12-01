@@ -49,22 +49,24 @@ class ResultsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel.result.observe(viewLifecycleOwner, Observer {
             setDataForChart(it)
-//            women_results_text.text =
-//                "${it.percentWomenCount}% of the speakers were women and they spoke ${it.percentWomenTime}% of the time."
-//            men_results_text.text =
-//                "${it.percentMenCount}% of the speakers were men and they spoke ${it.percentMenTime}% of the time."
+            women_results.text =
+                "${it.percentWomenCount}% of speakers were women and they spoke ${it.percentWomenTime}% of the total time."
+            men_results.text =
+                "${it.percentMenCount}% of speakers were men and they spoke ${it.percentMenTime}% of the total time."
         })
     }
 
     private fun setDataForChart(result: Result) {
         val pieEntryListCount: MutableList<PieEntry> = emptyList<PieEntry>().toMutableList()
-        pieEntryListCount.add(PieEntry(result.percentWomenCount.toFloat(), "Women"))
         pieEntryListCount.add(PieEntry(result.percentMenCount.toFloat(), "Men"))
+        pieEntryListCount.add(PieEntry(result.percentWomenCount.toFloat(), "Women"))
         val colorList: MutableList<Int> = emptyList<Int>().toMutableList()
-        for (c in ColorTemplate.JOYFUL_COLORS) colorList.add(c)
+//        for (c in ColorTemplate.JOYFUL_COLORS) colorList.add(c)
+        colorList.add(resources.getColor(R.color.men))
+        colorList.add(resources.getColor(R.color.women))
         val pieDataSetCount = PieDataSet(pieEntryListCount, "")
         pieDataSetCount.setDrawIcons(false)
-        pieDataSetCount.sliceSpace = 3f;
+//        pieDataSetCount.sliceSpace = 3f;
 
         pieDataSetCount.colors = colorList
         val pieDataCount = PieData(pieDataSetCount)
@@ -78,11 +80,11 @@ class ResultsFragment : Fragment() {
 
         // For time pie chart
         val pieEntryListTime: MutableList<PieEntry> = emptyList<PieEntry>().toMutableList()
-        pieEntryListTime.add(PieEntry(result.percentWomenTime.toFloat(), "Women"))
         pieEntryListTime.add(PieEntry(result.percentMenTime.toFloat(), "Men"))
+        pieEntryListTime.add(PieEntry(result.percentWomenTime.toFloat(), "Women"))
         val pieDataSetTime = PieDataSet(pieEntryListTime, "")
         pieDataSetTime.setDrawIcons(false)
-        pieDataSetTime.sliceSpace = 3f;
+//        pieDataSetTime.sliceSpace = 3f;
 
         pieDataSetTime.colors = colorList
         val pieDataTime = PieData(pieDataSetTime)
