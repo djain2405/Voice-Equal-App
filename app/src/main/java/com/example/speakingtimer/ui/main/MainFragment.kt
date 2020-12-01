@@ -125,11 +125,16 @@ class MainFragment : Fragment() {
         if (isWomen) {
             counter_background.setBackgroundColor(resources.getColor(R.color.women))
             women_timer_layout.background = resources.getDrawable(R.drawable.women_timer_background)
-            men_timer_layout.background = (resources.getDrawable(R.drawable.women_timer_background))
+            men_timer_layout.background = resources.getDrawable(R.drawable.women_timer_background)
+            edit_counter_button.background =
+                resources.getDrawable(R.drawable.women_timer_background)
+            reset_results.background = resources.getDrawable(R.drawable.women_timer_background)
         } else {
             counter_background.setBackgroundColor(resources.getColor(R.color.men))
             women_timer_layout.background = resources.getDrawable(R.drawable.men_timer_background)
-            men_timer_layout.background = (resources.getDrawable(R.drawable.men_timer_background))
+            men_timer_layout.background = resources.getDrawable(R.drawable.men_timer_background)
+            edit_counter_button.background = resources.getDrawable(R.drawable.men_timer_background)
+            reset_results.background = resources.getDrawable(R.drawable.men_timer_background)
         }
 
     }
@@ -145,10 +150,12 @@ class MainFragment : Fragment() {
         women_timer.setTextColor(resources.getColor(R.color.white))
         men_timer.setTextColor(resources.getColor(R.color.white))
         reset_title.setTextColor(resources.getColor(R.color.white))
+        reset_results.setImageResource(R.mipmap.resetwhite)
         total_duration_title.setTextColor(resources.getColor(R.color.white))
         total_duration.setTextColor(resources.getColor(R.color.white))
         show_results_button.isEnabled = true
         show_results_button.setTextColor(resources.getColor(R.color.white))
+        edit_counter_button.setImageResource(R.mipmap.editcounterwhite)
     }
 
     private fun renderStartTimerUI() {
