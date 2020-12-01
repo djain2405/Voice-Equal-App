@@ -51,27 +51,27 @@
 <!--        app:layout_constraintBaseline_toBaselineOf="@+id/men_timer"-->
 <!--        app:layout_constraintStart_toStartOf="parent" />-->
 
-    <TextView
-        android:id="@+id/women_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="@string/women"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/women_timer"
-        app:layout_constraintEnd_toEndOf="@+id/women_timer"
-        app:layout_constraintStart_toStartOf="@+id/women_timer" />
+<!--    <TextView-->
+<!--        android:id="@+id/women_title"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="4dp"-->
+<!--        android:text="@string/women"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/women_timer"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/women_timer"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/women_timer" />-->
 
-    <TextView
-        android:id="@+id/men_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="@string/men"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/men_timer"
-        app:layout_constraintEnd_toEndOf="@+id/men_timer"
-        app:layout_constraintStart_toStartOf="@+id/men_timer" />
+<!--    <TextView-->
+<!--        android:id="@+id/men_title"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="4dp"-->
+<!--        android:text="@string/men"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/men_timer"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/men_timer"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/men_timer" />-->
 
     <Button
         android:id="@+id/women_timer_button"
@@ -125,51 +125,51 @@
 <!--        app:layout_constraintHorizontal_bias="0.5"-->
 <!--        app:layout_constraintStart_toEndOf="@+id/show_results_button" />-->
 
-    <TextView
-        android:id="@+id/women_title_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="@string/women_title"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/edit_women_count"
-        app:layout_constraintStart_toStartOf="@+id/edit_women_count"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/women_title_text"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        android:text="@string/women_title"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/edit_women_count"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/edit_women_count"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <EditText
-        android:id="@+id/edit_women_count"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:hint="@string/enter_count_text"
-        android:importantForAutofill="no"
-        android:inputType="number"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edit_men_count"
-        app:layout_constraintStart_toStartOf="parent" />
+<!--    <EditText-->
+<!--        android:id="@+id/edit_women_count"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:hint="@string/enter_count_text"-->
+<!--        android:importantForAutofill="no"-->
+<!--        android:inputType="number"-->
+<!--        android:textSize="14sp"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/edit_men_count"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
-    <TextView
-        android:id="@+id/men_title_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="@string/men_text"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/edit_men_count"
-        app:layout_constraintStart_toStartOf="@+id/edit_men_count"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/men_title_text"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        android:text="@string/men_text"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/edit_men_count"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/edit_men_count"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <EditText
-        android:id="@+id/edit_men_count"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="@string/enter_count_text"
-        android:importantForAutofill="no"
-        android:inputType="number"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/save_count"
-        app:layout_constraintStart_toEndOf="@+id/edit_women_count"
-        app:layout_constraintTop_toBottomOf="@+id/men_title_text" />
+<!--    <EditText-->
+<!--        android:id="@+id/edit_men_count"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:hint="@string/enter_count_text"-->
+<!--        android:importantForAutofill="no"-->
+<!--        android:inputType="number"-->
+<!--        android:textSize="14sp"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/save_count"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/edit_women_count"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/men_title_text" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
