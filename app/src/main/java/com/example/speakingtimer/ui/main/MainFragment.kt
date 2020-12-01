@@ -180,11 +180,11 @@ class MainFragment : Fragment() {
     private fun calculateSpokenTime(isWomen: Boolean) {
         // button clicked was for the women timer
         if (isWomen) {
-            if (men_pause_button.tag == TimerState.PAUSE) {
+            if (men_pause_button.tag == TimerState.PLAY) {
                 val elapsedTime = SystemClock.elapsedRealtime() - men_timer.base
                 sharedPreferencesUtil.setPauseTimeForMen(men_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForMen(elapsedTime)
-                men_pause_button.tag = TimerState.PLAY
+                men_pause_button.tag = TimerState.PAUSE
                 men_pause_button.setImageResource(R.mipmap.menplay)
                 men_timer.stop()
             }
@@ -205,11 +205,11 @@ class MainFragment : Fragment() {
         }
         // button clicked was for men timer
         else {
-            if (women_pause_button.tag == TimerState.PAUSE) {
+            if (women_pause_button.tag == TimerState.PLAY) {
                 val elapsedTime = SystemClock.elapsedRealtime() - women_timer.base
                 sharedPreferencesUtil.setPauseTimeForWomen(women_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForWomen(elapsedTime)
-                women_pause_button.tag = TimerState.PLAY
+                women_pause_button.tag = TimerState.PAUSE
                 women_pause_button.setImageResource(R.mipmap.womenplay)
                 women_timer.stop()
 
