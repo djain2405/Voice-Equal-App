@@ -1,10 +1,8 @@
 package com.example.speakingtimer.ui.main
 
 import android.content.Context
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.os.SystemClock
-import android.text.format.DateFormat.format
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,8 +15,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.speakingtimer.R
 import com.example.speakingtimer.util.SharedPreferencesUtil
 import kotlinx.android.synthetic.main.main_fragment.*
-import kotlinx.android.synthetic.main.main_fragment.edit_men_count
-import kotlinx.android.synthetic.main.main_fragment.edit_women_count
 import kotlinx.android.synthetic.main.main_fragment.save_count
 import kotlinx.android.synthetic.main.timer_fragment.*
 import java.lang.String.format
@@ -86,7 +82,7 @@ class MainFragment : Fragment() {
             men_pause_button.setImageResource(R.mipmap.menplay)
             men_pause_button.tag = TimerState.PLAY
             women_pause_button.tag = TimerState.PAUSE
-            calculateSpokenTime(true)
+            changeEntireTheme(true)
 
         }
 
@@ -95,22 +91,22 @@ class MainFragment : Fragment() {
             women_pause_button.setImageResource(R.mipmap.womenplay)
             women_pause_button.tag = TimerState.PLAY
             men_pause_button.tag = TimerState.PAUSE
-            calculateSpokenTime(false)
+            changeEntireTheme(false)
 
         }
 
         women_pause_button.setOnClickListener {
-            calculateSpokenTime(true)
+            changeEntireTheme(true)
         }
 
         men_pause_button.setOnClickListener {
-            calculateSpokenTime(false)
+            changeEntireTheme(false)
         }
-//
-//        show_results_button.setOnClickListener {
-//            this.findNavController().navigate(R.id.action_mainFragment_to_resultsFragment)
-//        }
-//
+
+        show_results_button.setOnClickListener {
+            this.findNavController().navigate(R.id.action_mainFragment_to_resultsFragment)
+        }
+
         reset_results.setOnClickListener {
             edit_men_count.text.clear()
             edit_women_count.text.clear()
@@ -118,6 +114,42 @@ class MainFragment : Fragment() {
             men_timer.base = SystemClock.elapsedRealtime()
             sharedPreferencesUtil.clearSharedPreferences()
         }
+    }
+
+    private fun changeEntireTheme(isWomen: Boolean) {
+        setGenderBasedTheme(isWomen)
+        changeThemeOnTimer()
+        calculateSpokenTime(isWomen)
+    }
+
+    private fun setGenderBasedTheme(isWomen: Boolean) {
+        if (isWomen) {
+            counter_background.setBackgroundColor(resources.getColor(R.color.women))
+            women_timer_layout.background = resources.getDrawable(R.drawable.women_timer_background)
+            men_timer_layout.background = (resources.getDrawable(R.drawable.women_timer_background))
+        } else {
+            counter_background.setBackgroundColor(resources.getColor(R.color.men))
+            women_timer_layout.background = resources.getDrawable(R.drawable.men_timer_background)
+            men_timer_layout.background = (resources.getDrawable(R.drawable.men_timer_background))
+        }
+
+    }
+
+    private fun changeThemeOnTimer() {
+        counter_title.setTextColor(resources.getColor(R.color.white))
+        women_title_text.setTextColor(resources.getColor(R.color.white))
+        men_title_text.setTextColor(resources.getColor(R.color.white))
+        edit_women_count.setTextColor(resources.getColor(R.color.white))
+        edit_men_count.setTextColor(resources.getColor(R.color.white))
+        women_timer_title.setTextColor(resources.getColor(R.color.white))
+        men_timer_title.setTextColor(resources.getColor(R.color.white))
+        women_timer.setTextColor(resources.getColor(R.color.white))
+        men_timer.setTextColor(resources.getColor(R.color.white))
+        reset_title.setTextColor(resources.getColor(R.color.white))
+        total_duration_title.setTextColor(resources.getColor(R.color.white))
+        total_duration.setTextColor(resources.getColor(R.color.white))
+        show_results_button.isEnabled = true
+        show_results_button.setTextColor(resources.getColor(R.color.white))
     }
 
     private fun renderStartTimerUI() {
