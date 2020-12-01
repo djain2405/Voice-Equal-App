@@ -106,14 +106,55 @@ class MainFragment : Fragment() {
             women_timer.base = SystemClock.elapsedRealtime()
             men_timer.base = SystemClock.elapsedRealtime()
             sharedPreferencesUtil.clearSharedPreferences()
+            setEditCounterMode()
+            resetEntireTheme()
         }
     }
+
 
     private fun changeEntireTheme(isWomen: Boolean) {
         setGenderBasedTheme(isWomen)
         changeThemeOnTimer()
         calculateSpokenTime(isWomen)
     }
+
+    private fun resetEntireTheme() {
+        resetGenderBasedTheme()
+        resetThemeOnTimer()
+    }
+
+    private fun resetGenderBasedTheme() {
+        main_screen_layout.setBackgroundColor(resources.getColor(R.color.gray))
+        counter_background.setBackgroundColor(resources.getColor(R.color.gray))
+        women_timer_layout.background = resources.getDrawable(R.drawable.timer_background)
+        men_timer_layout.background = resources.getDrawable(R.drawable.timer_background)
+        edit_women_count.setBackgroundColor(resources.getColor(android.R.color.transparent))
+        edit_men_count.setBackgroundColor(resources.getColor(android.R.color.transparent))
+        edit_counter_button.background =
+            resources.getDrawable(R.drawable.edit_button_background)
+        reset_results.background = resources.getDrawable(R.drawable.edit_button_background)
+    }
+
+    private fun resetThemeOnTimer() {
+        counter_title.setTextColor(resources.getColor(R.color.black))
+        women_title_text.setTextColor(resources.getColor(R.color.black))
+        men_title_text.setTextColor(resources.getColor(R.color.black))
+        edit_women_count.setTextColor(resources.getColor(R.color.black))
+        edit_men_count.setTextColor(resources.getColor(R.color.black))
+        women_timer_title.setTextColor(resources.getColor(R.color.black))
+        men_timer_title.setTextColor(resources.getColor(R.color.black))
+        women_timer.setTextColor(resources.getColor(R.color.women_lighter))
+        men_timer.setTextColor(resources.getColor(R.color.men_lighter))
+        reset_title.setTextColor(resources.getColor(R.color.black))
+        reset_results.setImageResource(R.mipmap.resetbutton)
+        total_duration_title.setTextColor(resources.getColor(R.color.black))
+        total_duration.setTextColor(resources.getColor(R.color.black))
+        show_results_button.isEnabled = false
+        show_results_button.setTextColor(resources.getColor(android.R.color.darker_gray))
+        edit_counter_button.setImageResource(R.mipmap.editcounter)
+    }
+
+
 
     private fun setGenderBasedTheme(isWomen: Boolean) {
         if (isWomen) {
@@ -186,7 +227,12 @@ class MainFragment : Fragment() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             edit_women_count.setTextColor(resources.getColor(R.color.women))
             edit_men_count.setTextColor(resources.getColor(R.color.men))
-            edit_women_count.setBackgroundColor(resources.getColor(android.R.color.transparent, null))
+            edit_women_count.setBackgroundColor(
+                resources.getColor(
+                    android.R.color.transparent,
+                    null
+                )
+            )
             edit_men_count.setBackgroundColor(resources.getColor(android.R.color.transparent, null))
         }
     }
@@ -271,5 +317,6 @@ class MainFragment : Fragment() {
         }
 
     }
-
 }
+
+
