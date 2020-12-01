@@ -27,6 +27,10 @@ import java.text.SimpleDateFormat
 import kotlin.time.ExperimentalTime
 import kotlin.time.seconds
 
+enum class TimerState {
+    PLAY, PAUSE
+}
+
 class MainFragment : Fragment() {
 
     companion object {
@@ -80,12 +84,27 @@ class MainFragment : Fragment() {
         women_start_timer_button.setOnClickListener {
             renderStartTimerUI()
             men_pause_button.setImageResource(R.mipmap.menplay)
+            men_pause_button.tag = TimerState.PLAY
+            women_pause_button.tag = TimerState.PAUSE
+            calculateSpokenTime(true)
 
         }
 
         men_start_timer_button.setOnClickListener {
             renderStartTimerUI()
             women_pause_button.setImageResource(R.mipmap.womenplay)
+            women_pause_button.tag = TimerState.PLAY
+            men_pause_button.tag = TimerState.PAUSE
+            calculateSpokenTime(false)
+
+        }
+
+        women_pause_button.setOnClickListener {
+            calculateSpokenTime(true)
+        }
+
+        men_pause_button.setOnClickListener {
+            calculateSpokenTime(false)
         }
 //
 //        show_results_button.setOnClickListener {
@@ -95,8 +114,8 @@ class MainFragment : Fragment() {
         reset_results.setOnClickListener {
             edit_men_count.text.clear()
             edit_women_count.text.clear()
-//            women_timer.base = SystemClock.elapsedRealtime()
-//            men_timer.base = SystemClock.elapsedRealtime()
+            women_timer.base = SystemClock.elapsedRealtime()
+            men_timer.base = SystemClock.elapsedRealtime()
             sharedPreferencesUtil.clearSharedPreferences()
         }
     }
@@ -161,70 +180,52 @@ class MainFragment : Fragment() {
     private fun calculateSpokenTime(isWomen: Boolean) {
         // button clicked was for the women timer
         if (isWomen) {
-            if (men_timer_button.text == resources.getString(R.string.stop)) {
+            if (men_pause_button.tag == TimerState.PAUSE) {
                 val elapsedTime = SystemClock.elapsedRealtime() - men_timer.base
                 sharedPreferencesUtil.setPauseTimeForMen(men_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForMen(elapsedTime)
-                men_timer_button.text = resources.getString(R.string.start)
-                men_timer.background =
-                    ResourcesCompat.getDrawable(resources, R.drawable.men_timer_background, null)
-                men_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
+                men_pause_button.tag = TimerState.PLAY
+                men_pause_button.setImageResource(R.mipmap.menplay)
                 men_timer.stop()
             }
-            if (women_timer_button.text == resources.getString(R.string.start)) {
-                women_timer_button.text = resources.getString(R.string.stop)
+            if (women_pause_button.tag == TimerState.PAUSE) {
+                women_pause_button.tag = TimerState.PLAY
                 val stopTime = sharedPreferencesUtil.readWomenPauseTime()
                 women_timer.base = SystemClock.elapsedRealtime() + stopTime
-                women_timer.background = ResourcesCompat.getDrawable(
-                    resources,
-                    R.drawable.women_lighter_timer_background,
-                    null
-                )
-                women_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.black, null))
+                women_pause_button.setImageResource(R.mipmap.womenpause)
                 women_timer.start()
             } else {
                 val elapsedTime = SystemClock.elapsedRealtime() - women_timer.base
                 sharedPreferencesUtil.setPauseTimeForWomen(women_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForWomen(elapsedTime)
-                women_timer_button.text = resources.getString(R.string.start)
-                women_timer.background =
-                    ResourcesCompat.getDrawable(resources, R.drawable.women_timer_background, null)
-                women_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
+                women_pause_button.tag = TimerState.PAUSE
+                women_pause_button.setImageResource(R.mipmap.womenplay)
                 women_timer.stop()
             }
         }
         // button clicked was for men timer
         else {
-            if (women_timer_button.text == resources.getString(R.string.stop)) {
+            if (women_pause_button.tag == TimerState.PAUSE) {
                 val elapsedTime = SystemClock.elapsedRealtime() - women_timer.base
                 sharedPreferencesUtil.setPauseTimeForWomen(women_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForWomen(elapsedTime)
-                women_timer_button.text = resources.getString(R.string.start)
-                women_timer.background =
-                    ResourcesCompat.getDrawable(resources, R.drawable.women_timer_background, null)
-                women_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
+                women_pause_button.tag = TimerState.PLAY
+                women_pause_button.setImageResource(R.mipmap.womenplay)
                 women_timer.stop()
 
             }
-            if (men_timer_button.text == resources.getString(R.string.start)) {
-                men_timer_button.text = resources.getString(R.string.stop)
+            if (men_pause_button.tag == TimerState.PAUSE) {
+                men_pause_button.tag = TimerState.PLAY
                 val stopTime = sharedPreferencesUtil.readMenPauseTime()
                 men_timer.base = SystemClock.elapsedRealtime() + stopTime
-                men_timer.background = ResourcesCompat.getDrawable(
-                    resources,
-                    R.drawable.men_lighter_timer_background,
-                    null
-                )
-                men_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.black, null))
+                men_pause_button.setImageResource(R.mipmap.menpause)
                 men_timer.start()
             } else {
                 val elapsedTime = SystemClock.elapsedRealtime() - men_timer.base
                 sharedPreferencesUtil.setPauseTimeForMen(men_timer.base - SystemClock.elapsedRealtime())
                 sharedPreferencesUtil.setTimeForMen(elapsedTime)
-                men_timer_button.text = resources.getString(R.string.start)
-                men_timer.background =
-                    ResourcesCompat.getDrawable(resources, R.drawable.men_timer_background, null)
-                men_timer.setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
+                men_pause_button.tag = TimerState.PAUSE
+                men_pause_button.setImageResource(R.mipmap.menplay)
                 men_timer.stop()
             }
         }
