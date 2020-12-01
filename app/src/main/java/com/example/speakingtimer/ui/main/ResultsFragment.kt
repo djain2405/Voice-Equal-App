@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.speakingtimer.R
 import com.example.speakingtimer.model.Result
 import com.github.mikephil.charting.components.Legend
@@ -14,7 +15,10 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.utils.ColorTemplate
+import kotlinx.android.synthetic.main.new_results_fragment.*
 import kotlinx.android.synthetic.main.results_fragment.*
+import kotlinx.android.synthetic.main.results_fragment.count_pie_chart
+import kotlinx.android.synthetic.main.results_fragment.time_pie_chart
 
 
 class ResultsFragment : Fragment() {
@@ -36,6 +40,9 @@ class ResultsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        back_button.setOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
