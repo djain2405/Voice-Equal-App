@@ -9,18 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.core.content.res.ResourcesCompat
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.speakingtimer.R
 import com.example.speakingtimer.util.SharedPreferencesUtil
 import kotlinx.android.synthetic.main.main_fragment.*
 import kotlinx.android.synthetic.main.main_fragment.save_count
-import java.lang.String.format
-import java.text.DateFormat
-import java.text.SimpleDateFormat
 import kotlin.time.ExperimentalTime
-import kotlin.time.seconds
 
 enum class TimerState {
     PLAY, PAUSE
@@ -126,6 +120,8 @@ class MainFragment : Fragment() {
             counter_background.setBackgroundColor(resources.getColor(R.color.women))
             women_timer_layout.background = resources.getDrawable(R.drawable.women_timer_background)
             men_timer_layout.background = resources.getDrawable(R.drawable.women_timer_background)
+            edit_women_count.setBackgroundColor(resources.getColor(R.color.women))
+            edit_men_count.setBackgroundColor(resources.getColor(R.color.women))
             edit_counter_button.background =
                 resources.getDrawable(R.drawable.women_timer_background)
             reset_results.background = resources.getDrawable(R.drawable.women_timer_background)
@@ -133,6 +129,8 @@ class MainFragment : Fragment() {
             counter_background.setBackgroundColor(resources.getColor(R.color.men))
             women_timer_layout.background = resources.getDrawable(R.drawable.men_timer_background)
             men_timer_layout.background = resources.getDrawable(R.drawable.men_timer_background)
+            edit_women_count.setBackgroundColor(resources.getColor(R.color.men))
+            edit_men_count.setBackgroundColor(resources.getColor(R.color.men))
             edit_counter_button.background = resources.getDrawable(R.drawable.men_timer_background)
             reset_results.background = resources.getDrawable(R.drawable.men_timer_background)
         }
@@ -186,8 +184,10 @@ class MainFragment : Fragment() {
         edit_women_count.isEnabled = false
         edit_men_count.isEnabled = false
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            edit_women_count.setBackgroundColor(resources.getColor(R.color.gray, null))
-            edit_men_count.setBackgroundColor(resources.getColor(R.color.gray, null))
+            edit_women_count.setTextColor(resources.getColor(R.color.women))
+            edit_men_count.setTextColor(resources.getColor(R.color.men))
+            edit_women_count.setBackgroundColor(resources.getColor(android.R.color.transparent, null))
+            edit_men_count.setBackgroundColor(resources.getColor(android.R.color.transparent, null))
         }
     }
 
