@@ -193,6 +193,7 @@ class MainFragment : Fragment() {
                 val stopTime = sharedPreferencesUtil.readWomenPauseTime()
                 women_timer.base = SystemClock.elapsedRealtime() + stopTime
                 women_pause_button.setImageResource(R.mipmap.womenpause)
+                main_screen_layout.setBackgroundColor(resources.getColor(R.color.women))
                 women_timer.start()
             } else {
                 val elapsedTime = SystemClock.elapsedRealtime() - women_timer.base
@@ -219,6 +220,7 @@ class MainFragment : Fragment() {
                 val stopTime = sharedPreferencesUtil.readMenPauseTime()
                 men_timer.base = SystemClock.elapsedRealtime() + stopTime
                 men_pause_button.setImageResource(R.mipmap.menpause)
+                main_screen_layout.setBackgroundColor(resources.getColor(R.color.men))
                 men_timer.start()
             } else {
                 val elapsedTime = SystemClock.elapsedRealtime() - men_timer.base
