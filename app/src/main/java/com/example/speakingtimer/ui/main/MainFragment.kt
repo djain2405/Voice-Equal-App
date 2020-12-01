@@ -16,7 +16,6 @@ import com.example.speakingtimer.R
 import com.example.speakingtimer.util.SharedPreferencesUtil
 import kotlinx.android.synthetic.main.main_fragment.*
 import kotlinx.android.synthetic.main.main_fragment.save_count
-import kotlinx.android.synthetic.main.timer_fragment.*
 import java.lang.String.format
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -41,7 +40,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.timer_fragment, container, false)
+        return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
