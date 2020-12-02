@@ -70,6 +70,11 @@ class MainFragment : Fragment() {
         val menStopTime = sharedPreferencesUtil.readMenPauseTime()
         men_timer.base = SystemClock.elapsedRealtime() + menStopTime
 
+        if(womenStopTime != 0L || menStopTime != 0L) {
+            show_results_button.isEnabled = true
+            show_results_button.setTextColor(resources.getColor(R.color.white))
+        }
+
         women_start_timer_button.setOnClickListener {
             renderStartTimerUI()
             men_pause_button.setImageResource(R.mipmap.menplay)
