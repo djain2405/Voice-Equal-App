@@ -14,8 +14,6 @@ import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
-import com.github.mikephil.charting.utils.ColorTemplate
-import kotlinx.android.synthetic.main.new_results_fragment.*
 import kotlinx.android.synthetic.main.results_fragment.*
 import kotlinx.android.synthetic.main.results_fragment.count_pie_chart
 import kotlinx.android.synthetic.main.results_fragment.time_pie_chart
@@ -35,7 +33,7 @@ class ResultsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.new_results_fragment, container, false)
+        return inflater.inflate(R.layout.results_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
