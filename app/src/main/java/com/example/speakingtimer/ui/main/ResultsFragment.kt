@@ -1,6 +1,9 @@
 package com.example.speakingtimer.ui.main
 
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,10 +50,14 @@ class ResultsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel.result.observe(viewLifecycleOwner, Observer {
             setDataForChart(it)
-            women_results.text =
-                "${it.percentWomenCount}% of speakers were women and they spoke ${it.percentWomenTime}% of the total time."
-            men_results.text =
-                "${it.percentMenCount}% of speakers were men and they spoke ${it.percentMenTime}% of the total time."
+            val spannableStringWomen = SpannableString("${it.percentWomenCount}% of speakers were women and they spoke ${it.percentWomenTime}% of the total time.")
+            spannableStringWomen.setSpan(ForegroundColorSpan(resources.getColor(R.color.women)), 0, 3, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
+            spannableStringWomen.setSpan(ForegroundColorSpan(resources.getColor(R.color.women)), 42, 45, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
+            women_results.text = spannableStringWomen
+            val spannableStringMen = SpannableString("${it.percentMenCount}% of speakers were men and they spoke ${it.percentMenTime}% of the total time.")
+            spannableStringMen.setSpan(ForegroundColorSpan(resources.getColor(R.color.men)), 0, 3, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
+            spannableStringMen.setSpan(ForegroundColorSpan(resources.getColor(R.color.men)), 40, 43, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
+            men_results.text = spannableStringMen
         })
     }
 
