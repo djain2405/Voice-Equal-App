@@ -7,7 +7,7 @@
     <string name="start">Start</string>
     <string name="stop">Stop</string>
     <string name="show_results">See Result</string>
-    <string name="results">Results</string>
+    <string name="results">Result</string>
     <string name="reset_results">Reset Results</string>
     <string name="women_men_count_title">Women/Men Count</string>
     <string name="women_men_time_text">Women/Men Time</string>
@@ -25,4 +25,10 @@
     <string name="start_timer">Start Timer</string>
     <string name="women_pause_button">Women Timer Pause Button</string>
     <string name="men_pause_button">Men Timer Pause Button</string>
+    <string name="back_button">Back button</string>
+    <string name="headcount">headcount</string>
+    <string name="time">Time</string>
+    <string name="restart_button">Restart</string>
+    <string name="women_results_text">%d% of speakers were women and they spoke %d% of the total time</string>
+    <string name="men_results_text">%d% of speakers were men and they spoke %d% of the total time</string>
 </resources>
