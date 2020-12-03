@@ -70,9 +70,19 @@ class MainFragment : Fragment() {
         val menStopTime = sharedPreferencesUtil.readMenPauseTime()
         men_timer.base = SystemClock.elapsedRealtime() + menStopTime
 
-        if(womenStopTime != 0L || menStopTime != 0L) {
+        if (womenStopTime != 0L || menStopTime != 0L) {
             show_results_button.isEnabled = true
             show_results_button.setTextColor(resources.getColor(R.color.white))
+        }
+
+        val womenCount = sharedPreferencesUtil.readWomenCount()
+        val menCount = sharedPreferencesUtil.readMenCount()
+        if (womenCount > 0 || menCount > 0) {
+            setCounterMode()
+            edit_women_count.setText(womenCount.toString())
+            edit_men_count.setText(menCount.toString())
+        } else {
+            setEditCounterMode()
         }
 
         women_start_timer_button.setOnClickListener {
@@ -158,7 +168,6 @@ class MainFragment : Fragment() {
         show_results_button.setTextColor(resources.getColor(android.R.color.darker_gray))
         edit_counter_button.setImageResource(R.mipmap.editcounter)
     }
-
 
 
     private fun setGenderBasedTheme(isWomen: Boolean) {
@@ -255,15 +264,6 @@ class MainFragment : Fragment() {
     @ExperimentalTime
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val womenCount = sharedPreferencesUtil.readWomenCount()
-        val menCount = sharedPreferencesUtil.readMenCount()
-        if (womenCount > 0 || menCount > 0) {
-            setCounterMode()
-            edit_women_count.setText(womenCount.toString())
-            edit_men_count.setText(menCount.toString())
-        } else {
-            setEditCounterMode()
-        }
     }
 
     private fun calculateSpokenTime(isWomen: Boolean) {

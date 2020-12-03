@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.speakingtimer.R
 import com.example.speakingtimer.model.Result
+import com.example.speakingtimer.util.SharedPreferencesUtil
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
@@ -23,6 +24,10 @@ import kotlinx.android.synthetic.main.results_fragment.time_pie_chart
 
 
 class ResultsFragment : Fragment() {
+
+    private val sharedPreferencesUtil: SharedPreferencesUtil by lazy {
+        SharedPreferencesUtil(requireActivity().application)
+    }
 
     private val viewModel: ResultsViewModel by lazy {
         ViewModelProvider(
@@ -42,6 +47,11 @@ class ResultsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         back_button.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
+        restart_button.setOnClickListener {
+            sharedPreferencesUtil.clearSharedPreferences()
             findNavController().navigateUp()
         }
     }
