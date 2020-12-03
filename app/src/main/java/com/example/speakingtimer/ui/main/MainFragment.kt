@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.main_fragment.save_count
 import kotlin.time.ExperimentalTime
 
 enum class TimerState {
-    PLAY, PAUSE
+    START, PLAY, PAUSE
 }
 
 class MainFragment : Fragment() {
@@ -78,7 +78,7 @@ class MainFragment : Fragment() {
         women_start_timer_button.setOnClickListener {
             renderStartTimerUI()
             men_pause_button.setImageResource(R.mipmap.menplay)
-            men_pause_button.tag = TimerState.PLAY
+            men_pause_button.tag = TimerState.START
             women_pause_button.tag = TimerState.PAUSE
             changeEntireTheme(true)
 
@@ -87,7 +87,7 @@ class MainFragment : Fragment() {
         men_start_timer_button.setOnClickListener {
             renderStartTimerUI()
             women_pause_button.setImageResource(R.mipmap.womenplay)
-            women_pause_button.tag = TimerState.PLAY
+            women_pause_button.tag = TimerState.START
             men_pause_button.tag = TimerState.PAUSE
             changeEntireTheme(false)
 
@@ -277,7 +277,7 @@ class MainFragment : Fragment() {
                 men_pause_button.setImageResource(R.mipmap.menplay)
                 men_timer.stop()
             }
-            if (women_pause_button.tag == TimerState.PAUSE) {
+            if (women_pause_button.tag == TimerState.PAUSE || women_pause_button.tag == TimerState.START) {
                 women_pause_button.tag = TimerState.PLAY
                 val stopTime = sharedPreferencesUtil.readWomenPauseTime()
                 women_timer.base = SystemClock.elapsedRealtime() + stopTime
@@ -304,7 +304,7 @@ class MainFragment : Fragment() {
                 women_timer.stop()
 
             }
-            if (men_pause_button.tag == TimerState.PAUSE) {
+            if (men_pause_button.tag == TimerState.PAUSE || men_pause_button.tag == TimerState.START) {
                 men_pause_button.tag = TimerState.PLAY
                 val stopTime = sharedPreferencesUtil.readMenPauseTime()
                 men_timer.base = SystemClock.elapsedRealtime() + stopTime
