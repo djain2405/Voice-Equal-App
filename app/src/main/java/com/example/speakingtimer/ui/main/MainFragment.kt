@@ -69,6 +69,7 @@ class MainFragment : Fragment() {
         women_timer.base = SystemClock.elapsedRealtime() + womenStopTime
         val menStopTime = sharedPreferencesUtil.readMenPauseTime()
         men_timer.base = SystemClock.elapsedRealtime() + menStopTime
+        refreshTotalDuration()
 
         if (womenStopTime != 0L || menStopTime != 0L) {
             show_results_button.isEnabled = true
@@ -126,6 +127,7 @@ class MainFragment : Fragment() {
         women_timer.base = SystemClock.elapsedRealtime()
         men_timer.base = SystemClock.elapsedRealtime()
         sharedPreferencesUtil.clearSharedPreferences()
+        total_duration.text = "00:00"
         setEditCounterMode()
         resetEntireTheme()
     }
@@ -270,6 +272,15 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
     }
 
+    private fun refreshTotalDuration() {
+        val womenTime = sharedPreferencesUtil.readWomenTime()
+        val menTime = sharedPreferencesUtil.readMenTime()
+        val total = womenTime/1000 + menTime/1000
+        var mins = (total/60).toInt()
+        val secs = (total%60).toInt()
+        total_duration.text = "$mins:$secs"
+    }
+
     private fun calculateSpokenTime(isWomen: Boolean) {
         // button clicked was for the women timer
         if (isWomen) {
@@ -280,6 +291,7 @@ class MainFragment : Fragment() {
                 men_pause_button.tag = TimerState.PAUSE
                 men_pause_button.setImageResource(R.mipmap.menplay)
                 men_timer.stop()
+                refreshTotalDuration()
             }
             if (women_pause_button.tag == TimerState.PAUSE || women_pause_button.tag == TimerState.START) {
                 women_pause_button.tag = TimerState.PLAY
@@ -295,6 +307,7 @@ class MainFragment : Fragment() {
                 women_pause_button.tag = TimerState.PAUSE
                 women_pause_button.setImageResource(R.mipmap.womenplay)
                 women_timer.stop()
+                refreshTotalDuration()
             }
         }
         // button clicked was for men timer
@@ -306,7 +319,7 @@ class MainFragment : Fragment() {
                 women_pause_button.tag = TimerState.PAUSE
                 women_pause_button.setImageResource(R.mipmap.womenplay)
                 women_timer.stop()
-
+                refreshTotalDuration()
             }
             if (men_pause_button.tag == TimerState.PAUSE || men_pause_button.tag == TimerState.START) {
                 men_pause_button.tag = TimerState.PLAY
@@ -322,6 +335,7 @@ class MainFragment : Fragment() {
                 men_pause_button.tag = TimerState.PAUSE
                 men_pause_button.setImageResource(R.mipmap.menplay)
                 men_timer.stop()
+                refreshTotalDuration()
             }
         }
 
