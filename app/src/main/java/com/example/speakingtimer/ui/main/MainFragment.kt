@@ -116,14 +116,18 @@ class MainFragment : Fragment() {
         }
 
         reset_results.setOnClickListener {
-            edit_men_count.text.clear()
-            edit_women_count.text.clear()
-            women_timer.base = SystemClock.elapsedRealtime()
-            men_timer.base = SystemClock.elapsedRealtime()
-            sharedPreferencesUtil.clearSharedPreferences()
-            setEditCounterMode()
-            resetEntireTheme()
+            reset()
         }
+    }
+
+    private fun reset() {
+        edit_men_count.text.clear()
+        edit_women_count.text.clear()
+        women_timer.base = SystemClock.elapsedRealtime()
+        men_timer.base = SystemClock.elapsedRealtime()
+        sharedPreferencesUtil.clearSharedPreferences()
+        setEditCounterMode()
+        resetEntireTheme()
     }
 
 
