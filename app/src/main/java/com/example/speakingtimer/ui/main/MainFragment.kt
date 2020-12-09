@@ -239,6 +239,8 @@ class MainFragment : Fragment() {
 
         edit_women_count.isEnabled = true
         edit_men_count.isEnabled = true
+        edit_women_count.setTextColor(resources.getColor(R.color.black))
+        edit_men_count.setTextColor(resources.getColor(R.color.black))
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             edit_women_count.setBackgroundColor(resources.getColor(R.color.white, null))
             edit_men_count.setBackgroundColor(resources.getColor(R.color.white, null))
@@ -262,6 +264,10 @@ class MainFragment : Fragment() {
                 )
             )
             edit_men_count.setBackgroundColor(resources.getColor(android.R.color.transparent, null))
+        }
+        if(men_pause_button.tag == TimerState.PLAY || women_pause_button.tag == TimerState.PLAY){
+            edit_women_count.setTextColor(resources.getColor(R.color.white))
+            edit_men_count.setTextColor(resources.getColor(R.color.white))
         }
     }
 
