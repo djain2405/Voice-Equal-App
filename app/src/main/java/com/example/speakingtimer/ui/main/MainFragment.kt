@@ -14,6 +14,7 @@ import com.example.speakingtimer.R
 import com.example.speakingtimer.util.SharedPreferencesUtil
 import kotlinx.android.synthetic.main.main_fragment.*
 import kotlinx.android.synthetic.main.main_fragment.save_count
+import java.text.DecimalFormat
 import java.util.*
 import kotlin.time.ExperimentalTime
 
@@ -283,9 +284,9 @@ class MainFragment : Fragment() {
         val womenTime = sharedPreferencesUtil.readWomenTime()
         val menTime = sharedPreferencesUtil.readMenTime()
         val total = womenTime/1000 + menTime/1000
-        var mins = (total/60).toInt()
+        val mins = (total/60).toInt()
         val secs = (total%60).toInt()
-        total_duration.text = "$mins:$secs"
+        total_duration.text = "${DecimalFormat("00").format(mins)}:${DecimalFormat("00").format(secs)}"
     }
 
     private fun calculateSpokenTime(isWomen: Boolean) {
