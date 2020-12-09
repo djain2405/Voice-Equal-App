@@ -72,6 +72,7 @@ class ResultsFragment : Fragment() {
     }
 
     private fun setDataForChart(result: Result) {
+
         val pieEntryListCount: MutableList<PieEntry> = emptyList<PieEntry>().toMutableList()
         pieEntryListCount.add(PieEntry(result.percentMenCount.toFloat(), "Men"))
         pieEntryListCount.add(PieEntry(result.percentWomenCount.toFloat(), "Women"))
@@ -83,7 +84,7 @@ class ResultsFragment : Fragment() {
 
         pieDataSetCount.colors = colorList
         val pieDataCount = PieData(pieDataSetCount)
-        pieDataCount.setValueTextSize(6f)
+        pieDataCount.setValueTextSize(10f)
         pieDataCount.setValueTextColor(resources.getColor(R.color.white))
         count_pie_chart.data = pieDataCount
         count_pie_chart.setDrawEntryLabels(false)
@@ -101,7 +102,7 @@ class ResultsFragment : Fragment() {
 
         pieDataSetTime.colors = colorList
         val pieDataTime = PieData(pieDataSetTime)
-        pieDataTime.setValueTextSize(6f)
+        pieDataTime.setValueTextSize(10f)
         pieDataTime.setValueTextColor(resources.getColor(R.color.white))
         time_pie_chart.data = pieDataTime
         time_pie_chart.setDrawEntryLabels(false)

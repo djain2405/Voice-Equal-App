@@ -14,6 +14,7 @@ import com.example.speakingtimer.R
 import com.example.speakingtimer.util.SharedPreferencesUtil
 import kotlinx.android.synthetic.main.main_fragment.*
 import kotlinx.android.synthetic.main.main_fragment.save_count
+import java.util.*
 import kotlin.time.ExperimentalTime
 
 enum class TimerState {
@@ -113,6 +114,12 @@ class MainFragment : Fragment() {
         }
 
         show_results_button.setOnClickListener {
+            if(men_pause_button.tag == TimerState.PLAY) {
+                calculateSpokenTime(false)
+            }
+            if(women_pause_button.tag == TimerState.PLAY) {
+                calculateSpokenTime(true)
+            }
             this.findNavController().navigate(R.id.action_mainFragment_to_resultsFragment)
         }
 
