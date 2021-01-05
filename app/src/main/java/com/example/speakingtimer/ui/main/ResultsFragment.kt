@@ -84,7 +84,7 @@ class ResultsFragment : Fragment() {
 
         pieDataSetCount.colors = colorList
         val pieDataCount = PieData(pieDataSetCount)
-        pieDataCount.setValueTextSize(10f)
+        pieDataCount.setValueTextSize(13f)
         pieDataCount.setValueTextColor(resources.getColor(R.color.white))
         count_pie_chart.data = pieDataCount
         count_pie_chart.setDrawEntryLabels(false)
@@ -102,7 +102,7 @@ class ResultsFragment : Fragment() {
 
         pieDataSetTime.colors = colorList
         val pieDataTime = PieData(pieDataSetTime)
-        pieDataTime.setValueTextSize(10f)
+        pieDataTime.setValueTextSize(13f)
         pieDataTime.setValueTextColor(resources.getColor(R.color.white))
         time_pie_chart.data = pieDataTime
         time_pie_chart.setDrawEntryLabels(false)
