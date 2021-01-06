@@ -29,6 +29,6 @@
     <string name="headcount">headcount</string>
     <string name="time">Time</string>
     <string name="restart_button">Restart</string>
-    <string name="women_results_text">%d% of speakers were women and they spoke %d% of the total time</string>
-    <string name="men_results_text">%d% of speakers were men and they spoke %d% of the total time</string>
+    <string name="women_results_text">%d% of speakers were women and they spoke %d% of the time</string>
+    <string name="men_results_text">%d% of speakers were men and they spoke %d% of the time</string>
 </resources>

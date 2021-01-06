@@ -60,11 +60,11 @@ class ResultsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel.result.observe(viewLifecycleOwner, Observer {
             setDataForChart(it)
-            val spannableStringWomen = SpannableString("${it.percentWomenCount}% of speakers were women and they spoke ${it.percentWomenTime}% of the total time.")
+            val spannableStringWomen = SpannableString("${it.percentWomenCount}% of speakers were women and they spoke ${it.percentWomenTime}% of the time.")
             spannableStringWomen.setSpan(ForegroundColorSpan(resources.getColor(R.color.women)), 0, 3, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
             spannableStringWomen.setSpan(ForegroundColorSpan(resources.getColor(R.color.women)), 42, 45, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
             women_results.text = spannableStringWomen
-            val spannableStringMen = SpannableString("${it.percentMenCount}% of speakers were men and they spoke ${it.percentMenTime}% of the total time.")
+            val spannableStringMen = SpannableString("${it.percentMenCount}% of speakers were men and they spoke ${it.percentMenTime}% of the time.")
             spannableStringMen.setSpan(ForegroundColorSpan(resources.getColor(R.color.men)), 0, 3, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
             spannableStringMen.setSpan(ForegroundColorSpan(resources.getColor(R.color.men)), 40, 43, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
             men_results.text = spannableStringMen
