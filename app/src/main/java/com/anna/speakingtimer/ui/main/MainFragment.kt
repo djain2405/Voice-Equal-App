@@ -1,4 +1,4 @@
-package com.example.speakingtimer.ui.main
+package com.anna.speakingtimer.ui.main
 
 import android.content.Context
 import android.os.Bundle
@@ -10,12 +10,11 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.example.speakingtimer.R
-import com.example.speakingtimer.util.SharedPreferencesUtil
+import com.anna.speakingtimer.R
+import com.anna.speakingtimer.util.SharedPreferencesUtil
 import kotlinx.android.synthetic.main.main_fragment.*
 import kotlinx.android.synthetic.main.main_fragment.save_count
 import java.text.DecimalFormat
-import java.util.*
 import kotlin.time.ExperimentalTime
 
 enum class TimerState {

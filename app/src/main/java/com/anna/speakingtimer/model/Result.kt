@@ -1,4 +1,4 @@
-package com.example.speakingtimer.model
+package com.anna.speakingtimer.model
 
 data class Result(
     val menCount: Int,

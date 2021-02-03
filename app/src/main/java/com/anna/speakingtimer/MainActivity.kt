@@ -1,8 +1,7 @@
-package com.example.speakingtimer
+package com.anna.speakingtimer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.speakingtimer.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.example.speakingtimer.ui.main
+package com.anna.speakingtimer.ui.main
 
 import android.os.Bundle
 import android.text.SpannableString
@@ -11,9 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.speakingtimer.R
-import com.example.speakingtimer.model.Result
-import com.example.speakingtimer.util.SharedPreferencesUtil
+import com.anna.speakingtimer.R
+import com.anna.speakingtimer.model.Result
+import com.anna.speakingtimer.util.SharedPreferencesUtil
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet

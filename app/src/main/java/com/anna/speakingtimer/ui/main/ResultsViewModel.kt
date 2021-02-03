@@ -1,9 +1,9 @@
-package com.example.speakingtimer.ui.main
+package com.anna.speakingtimer.ui.main
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.speakingtimer.model.Result
-import com.example.speakingtimer.util.SharedPreferencesUtil
+import com.anna.speakingtimer.model.Result
+import com.anna.speakingtimer.util.SharedPreferencesUtil
 
 class ResultsViewModel(application: Application) : AndroidViewModel(application) {
 

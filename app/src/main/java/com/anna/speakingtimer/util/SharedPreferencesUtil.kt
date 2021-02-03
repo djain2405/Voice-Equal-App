@@ -1,4 +1,4 @@
-package com.example.speakingtimer.util
+package com.anna.speakingtimer.util
 
 import android.app.Application
 import android.content.Context

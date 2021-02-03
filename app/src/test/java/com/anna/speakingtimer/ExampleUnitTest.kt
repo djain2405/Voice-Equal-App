@@ -1,4 +1,4 @@
-package com.example.speakingtimer
+package com.anna.speakingtimer
 
 import org.junit.Test
 

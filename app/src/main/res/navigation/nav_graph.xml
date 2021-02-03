@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.speakingtimer.ui.main.MainFragment"
+        android:name="com.anna.speakingtimer.ui.main.MainFragment"
         android:label="main_fragment"
         tools:layout="@layout/main_fragment" >
         <action
@@ -16,6 +16,6 @@
     </fragment>
     <fragment
         android:id="@+id/resultsFragment"
-        android:name="com.example.speakingtimer.ui.main.ResultsFragment"
+        android:name="com.anna.speakingtimer.ui.main.ResultsFragment"
         android:label="ResultsFragment" />
 </navigation>
